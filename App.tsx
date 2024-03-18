@@ -12,6 +12,7 @@ import Toast from 'react-native-toast-message';
 import {NavigationContainer} from '@react-navigation/native';
 import {UserLocContextProvider} from './contexts/userloc';
 import Content from './components/Content';
+//import HapticTest from './components/HapticTest';
 
 function App(): React.JSX.Element {
   function showToast() {
@@ -27,6 +28,7 @@ function App(): React.JSX.Element {
       <NavigationContainer>
         <View className="flex flex-1 border-solid">
           <Content />
+            {/*<HapticTest/>*/}
           {/* <VoicRecog /> */}
 
           {/* <Button title="show toast" onPress={showToast}>

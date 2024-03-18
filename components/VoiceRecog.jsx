@@ -37,7 +37,7 @@ export default function VoicRecog() {
     }catch(e){
         console.error(e);
     }
-
+z
   }
 
   return (
