@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import {View} from 'react-native';
+import {Button, View} from 'react-native';
 import VoicRecog from './components/VoiceRecog';
 import Toast from 'react-native-toast-message';
 import {NavigationContainer} from '@react-navigation/native';
 import {UserLocContextProvider} from './contexts/userloc';
 import Content from './components/Content';
-//import HapticTest from './components/HapticTest';
+import HapticTest from './components/HapticTest';
 
 function App(): React.JSX.Element {
   function showToast() {
@@ -24,11 +24,12 @@ function App(): React.JSX.Element {
   }
 
   return (
+    
     <UserLocContextProvider>
       <NavigationContainer>
         <View className="flex flex-1 border-solid">
           <Content />
-            {/*<HapticTest/>*/}
+            <HapticTest/>
           {/* <VoicRecog /> */}
 
           {/* <Button title="show toast" onPress={showToast}>

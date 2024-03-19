@@ -35,6 +35,8 @@ export default function HapticTest(){
   );
 
 
+};
+
 const styles = StyleSheet.create({
   button: {
     padding: 20,
@@ -46,7 +48,3 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 });
-
-};
-
-
