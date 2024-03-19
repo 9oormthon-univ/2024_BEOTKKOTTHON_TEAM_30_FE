@@ -1,30 +1,53 @@
 import {TouchableOpacity, Text, StyleSheet} from 'react-native';
-import {NativeModules} from 'react-native';
+import { HapticEngine } from 'react-native-core-haptics-api';
 
-const {CoreHapticsModule} = NativeModules;
-
-export default function HapticTest(){
+export default async function HapticTest(){
   
-  // 햅틱 이벤트 생성 함수
-  function createVibrationEvent(relativeTime) {
-    return {
-      eventType: 'transient',
-      parameters: {},
-      relativeTime,
-    };
+  const capabilities = await HapticEngine.getDeviceCapabilities();
+    if (!capabilities.supportsHaptics) {
+        throw new Error("Device does not support haptics");
+    }
+
+
+  const hapticEvent = {
+    parameters: [{
+      parametersID: {
+        rawValue: "HapticIntencity"
+      },
+      value: 1,
+    },{
+      parametersID: {
+        rawValue: "HapticSharpness",
+      },
+      value : 0.1
+    }],
+    eventType: {
+      rawValue: "HapticContinuous"
+    },
+    duration: 0.5,
+    relativeTime: 0
   }
-
-  // 햅틱 패턴 생성
-  const pattern = [2, 1, 1];
-  const events = pattern.map((duration, index) =>createVibrationEvent(index === 0 ? 0 : pattern.slice(0, index).reduce((acc, curr) => acc + curr, 0)));
-  const hapticPattern = {
-    events,
-    parameters: {},
-  };
-
+  
+ 
+  
   // 버튼 눌렀을 때 햅틱 실행 함수
-  const onPressButton = () => {
-    CoreHapticsModule.triggerCustomHapticWithPattern(hapticPattern);
+  const onPressButton = async () => {
+    
+    await HapticEngine.start(undefined);
+    await HapticEngine.makePlayer(hapticEvent, undefined);
+    let currentTime = 0.0;
+    await HapticEngine.startPlayerAtTime(hapticEvent, currentTime, undefined);
+
+    setTimeout(() => {
+      HapticEngine.stop(undefined)
+        .then(() => {
+          console.error("ok");
+        })
+        .catch(stopError => {
+          console.error(stopError);
+        })
+  }, 1000);
+
   };
 
   
