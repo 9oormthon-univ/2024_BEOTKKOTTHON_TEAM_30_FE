@@ -9,8 +9,35 @@ export default function HapticTest(){
       if (!capabilities.supportsHaptics) {
         throw new Error('Device does not support haptics');
       }
+
+      const hapticEvent = {};
+    hapticEvent.duration = 0.5;
+    hapticEvent.relativeTime = 0;
+    hapticEvent.eventType = { rawValue: "HapticContinuous" };
+
+    const parameters = [];
+
+    const intensityParameter = {
+        parameterID: { rawValue: "HapticIntensity" },
+        value: 1
+    };
+    parameters.push(intensityParameter);
+
+    const sharpnessParameter = {
+        parameterID: { rawValue: "HapticSharpness" },
+        value: 0.6
+    };
+    parameters.push(sharpnessParameter);
+
+    hapticEvent.parameters = parameters;
+
+    const hapticEvents = [hapticEvent];
+
+    const pattern = {
+        hapticEvents
+    };
   
-    const hapticEvent = {
+    /*const hapticEvent = {
       parameters: [{
         parametersID: {
           rawValue: "HapticIntencity"
@@ -29,11 +56,11 @@ export default function HapticTest(){
       relativeTime: 0
     }
   
-
+*/
     await HapticEngine.start(undefined);
-    await HapticEngine.makePlayer(hapticEvent, undefined);
+    await HapticEngine.makePlayer(pattern, undefined);
     let currentTime = 0.0;
-    await HapticEngine.startPlayerAtTime(hapticEvent, currentTime, undefined);
+    await HapticEngine.startPlayerAtTime(pattern, currentTime, undefined);
 
     setTimeout(() => {
       HapticEngine.stop(undefined)
