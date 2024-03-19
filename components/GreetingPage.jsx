@@ -4,7 +4,7 @@ import {useContext} from 'react';
 import {UserLocContext} from '../contexts/userloc';
 import Header from './Header';
 
-export default function () {
+export default function GreetingPage() {
   const {userName, moveLoc} = useContext(UserLocContext);
 
   return (

@@ -1,4 +1,4 @@
-import {Image, Text, TextInput, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 
 import ProgressButton from './ProgressButton';
 
@@ -7,6 +7,54 @@ import {KeywordsContext} from '../contexts/keywords';
 import AssignHeader from './AssignHeader';
 import Assigning from './Assigning';
 import {UserLocContext} from '../contexts/userloc';
+
+import bgFamily from '../assets/BGassignedFamily.png';
+import Family from '../assets/twinkleFamily.png';
+
+import bgWork from '../assets/BGassignedWork.png';
+import Work from '../assets/twinkleWork.png';
+
+import bgFriend from '../assets/BGassignedFriend.png';
+import Friend from '../assets/twinkleDaily.png';
+
+import bgLover from '../assets/BGassignedLover.png';
+import Lover from '../assets/twinkleLover.png';
+
+import bgEmergency from '../assets/BGassignedEmergency.png';
+import emergency from '../assets/twinkleRed.png';
+
+const AssignsExplanation = [
+  {
+    type: '가족',
+    icon: Family,
+    bg: bgFamily,
+    expl: '가족이 부르실 때 알려드릴게요!',
+  },
+  {
+    type: '직장',
+    icon: Work,
+    bg: bgWork,
+    expl: '직장에서 부르실 때 알려드릴게요!',
+  },
+  {
+    type: '친구',
+    icon: Friend,
+    bg: bgFriend,
+    expl: '친구가 부르실 때 알려드릴게요!',
+  },
+  {
+    type: '연인',
+    icon: Lover,
+    bg: bgLover,
+    expl: '연인이 부르실 때 알려드릴게요!',
+  },
+  {
+    type: '긴급',
+    icon: emergency,
+    bg: bgEmergency,
+    expl: '긴급상황 시 알려드릴게요!',
+  },
+];
 
 export default function AssignPage() {
   const [isNameOk, setIsNameOk] = useState(false);
@@ -17,11 +65,20 @@ export default function AssignPage() {
   const {addKeyword} = useContext(KeywordsContext);
   const {moveLoc} = useContext(UserLocContext);
 
+  const expl =
+    AssignsExplanation[AssignsExplanation.findIndex(item => item.type === type)]
+      .expl;
+  const icon =
+    AssignsExplanation[AssignsExplanation.findIndex(item => item.type === type)]
+      .icon;
+
+  const bg =
+    AssignsExplanation[AssignsExplanation.findIndex(item => item.type === type)]
+      .bg;
+
   function assignHandler() {
     if (isAssigned) {
       moveLoc('add');
-    } else {
-      setIsAssigned(true);
       if (type === '긴급') {
         addKeyword({
           id: Math.random(),
@@ -32,6 +89,8 @@ export default function AssignPage() {
       } else {
         addKeyword({id: Math.random(), type: type, keywordText: keywordText});
       }
+    } else {
+      setIsAssigned(true);
     }
   }
 
@@ -39,14 +98,21 @@ export default function AssignPage() {
     <>
       <AssignHeader text="키워드 추가" />
       {isAssigned && (
-        <View className="flex flex-1 justify-center items-center">
-          <Text className="color-[#606BFF] text-[30px] font-bold">
-            "{keywordText}"
-          </Text>
-          <Text className="color-[#667085] mt-[12px] text-[20px] font-medium">
-            {type} 중 부르실 때 알려드릴게요!
-          </Text>
-        </View>
+        <>
+          <Image source={bg} className="absolute top-[320px] left-[40px]" />
+          <View className="flex flex-1 justify-center items-center relative">
+            <Image
+              source={icon}
+              className="w-[48px] h-[48px] absolute top-[320px]"
+            />
+            <Text className="color-[#606BFF] text-[30px] font-bold absolute top-[380px]">
+              "{keywordText}"
+            </Text>
+            <Text className="color-[#667085] mt-[12px] text-[20px] font-medium absolute top-[420px]">
+              {expl}
+            </Text>
+          </View>
+        </>
       )}
       {!isAssigned && (
         <Assigning

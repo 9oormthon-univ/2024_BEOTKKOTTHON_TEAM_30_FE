@@ -12,16 +12,24 @@ export default function MainPage() {
   const {userLoc} = useContext(UserLocContext);
   let tab;
   if (userLoc === 'home') {
-    tab = <Home />;
-  }else if (userLoc === 'add'){
-    tab = <Add />
-  }else if(userLoc === 'setting'){
-    tab = <Setting />
+    tab = (
+      <View className="flex flex-1 w-full ">
+        <Home />
+      </View>
+    );
+  } else if (userLoc === 'add') {
+    tab = (
+      <View className="flex flex-1 mx-[24px] mt-[40px]">
+        <Add />
+      </View>
+    );
+  } else if (userLoc === 'setting') {
+    tab = <Setting />;
   }
   return (
     <>
       <Header />
-      <View className="flex flex-1 mx-[24px] mt-[40px]">{tab}</View>
+      {tab}
       <NavBar />
     </>
   );

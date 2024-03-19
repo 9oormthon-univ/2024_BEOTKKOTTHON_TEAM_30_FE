@@ -5,7 +5,8 @@ import {View, Text, Image} from 'react-native';
 
 import MainPage from './MainPage';
 import AssignPage from './AssignPage';
-import SplashPage from './SplashPage';
+import SplashPage from './GreetingPage';
+import GreetingPage from './GreetingPage';
 
 export default function Content() {
   const {userLoc} = useContext(UserLocContext);
@@ -13,8 +14,8 @@ export default function Content() {
 
   if (userLoc === 'login') {
     content = <LoginPage />;
-  } else if (userLoc === 'splash') {
-    content = <SplashPage />
+  } else if (userLoc === 'greeting') {
+    content = <GreetingPage />
   } else if (userLoc === 'home' || userLoc === 'add' || userLoc === 'setting') {
     content = <MainPage />;
   } else if(userLoc === 'assign'){

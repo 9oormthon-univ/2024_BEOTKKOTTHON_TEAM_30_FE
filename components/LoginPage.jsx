@@ -21,16 +21,19 @@ export default function LoginPage() {
 
   function pressHandler() {
     if (isNameOk) {
-      moveLoc('splash');
+      moveLoc('greeting');
     }
   }
-  
 
   return (
     <>
       <Header />
       <LoginMain setName={userNameHandler} isNameOk={isNameOk} />
-      <ProgressButton onPressIn={pressHandler} actiavted={isNameOk} text="다음"/>
+      <ProgressButton
+        onPressIn={pressHandler}
+        actiavted={isNameOk}
+        text="다음"
+      />
     </>
   );
 }
