@@ -11,6 +11,7 @@ import {UserLocContext} from '../contexts/userloc';
 export default function AssignPage() {
   const [isNameOk, setIsNameOk] = useState(false);
   const [type, setType] = useState('가족');
+  const [danger, setDanger] = useState('');
   const [keywordText, setKeywordText] = useState();
   const [isAssigned, setIsAssigned] = useState(false);
   const {addKeyword} = useContext(KeywordsContext);
@@ -40,6 +41,7 @@ export default function AssignPage() {
       )}
       {!isAssigned && (
         <Assigning
+          setDanger={(r) => setDanger(r)}
           isNameOk={isNameOk}
           type={type}
           setIsNameOk={result => setIsNameOk(result)}

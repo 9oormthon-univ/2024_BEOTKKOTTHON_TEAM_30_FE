@@ -21,7 +21,7 @@ export default function MainPage() {
   return (
     <>
       <Header />
-      <View className="flex flex-1 mx-[24px] my-[65px]">{tab}</View>
+      <View className="flex flex-1 mx-[24px] mt-[40px]">{tab}</View>
       <NavBar />
     </>
   );
