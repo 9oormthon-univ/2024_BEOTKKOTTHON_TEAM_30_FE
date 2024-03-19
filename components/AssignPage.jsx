@@ -27,13 +27,13 @@ export default function AssignPage() {
 
   return (
     <>
-      <AssignHeader text="키워드 추가하기" />
+      <AssignHeader text="키워드 추가" />
       {isAssigned && (
         <View className="flex flex-1 justify-center items-center">
-          <Text className="color-[#606BFF] text-3xl font-extrabold">
+          <Text className="color-[#606BFF] text-[30px] font-bold">
             "{keywordText}"
           </Text>
-          <Text className="color-[#667085] mt-3 text-[20px] font-medium">
+          <Text className="color-[#667085] mt-[12px] text-[20px] font-medium">
             {type} 중 부르실 때 알려드릴게요!
           </Text>
         </View>

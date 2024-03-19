@@ -11,6 +11,15 @@ import assignButton from '../assets/assignButton.png';
 import {useContext} from 'react';
 import {UserLocContext} from '../contexts/userloc';
 import {KeywordsContext} from '../contexts/keywords';
+import Keyword from './Keyword';
+
+const CalledKeywords = [
+  {id: 0, icon: loverIcon},
+  {id: 1, icon: friendIcon},
+  {id: 2, icon: workIcon},
+  {id: 3, icon: familyIcon},
+  {id: 4, icon: dailyIcon},
+];
 
 export default function Add() {
   const {moveLoc} = useContext(UserLocContext);
@@ -19,7 +28,7 @@ export default function Add() {
     <>
       <View>
         <Text className="color-[#606BFF] text-[32px] font-bold">구름아</Text>
-        <Text className="color-[#182230] text-[20px] font-bold my-3">
+        <Text className="color-[#182230] text-[20px] font-bold my-[12px]">
           로 가장 많이 불렸어요!
         </Text>
       </View>
@@ -28,58 +37,38 @@ export default function Add() {
         <Text className="color-[#182230] text-[20px] font-bold">
           오늘 많이 불린 키워드
         </Text>
-        <View className="flex flex-row justify-between mt-4 mx-3">
+        <View className="flex flex-row justify-between mt-[16px] mx-[12px]">
           {/* 백에서 정보 받아오기.. */}
-          <CalledKeywordItem icon={loverIcon} cnt={0} />
-          <CalledKeywordItem icon={friendIcon} cnt={0} />
-          <CalledKeywordItem icon={workIcon} cnt={0} />
-          <CalledKeywordItem icon={familyIcon} cnt={0} />
-          <CalledKeywordItem icon={dailyIcon} cnt={0} />
+          {CalledKeywords.map(item => (
+            <CalledKeywordItem key={item.id} icon={item.icon} cnt={0} />
+          ))}
         </View>
-        <View className="mt-5 flex flex-row justify-between items-end mb-2">
+        <View className="mt-5 flex flex-row justify-between items-end mb-[8px]">
           <Text className="text-[20px] font-bold color-[#182230]">
             내 키워드
           </Text>
           <Text className="color-[#606BFF]">편집</Text>
         </View>
-        <ScrollView className="mt-2">
+        <View className="mt-[8px] flex flex-col">
           <Pressable
             onPressIn={() => moveLoc('assign')}
-            className="bg-[#F2F4F7] flex flex-row items-center rounded-2xl">
-            <Image className="m-3" source={assignButton} />
+            className="bg-[#F2F4F7] flex flex-row items-center rounded-[16px] mb-[12px] h-[48px]">
+            <Image className="m-[12px]" source={assignButton} />
             <Text className="color-[#98A2B3] text-[16px] font-medium">
               키워드 추가하기
             </Text>
           </Pressable>
 
-          <View>
+          <ScrollView className="flex flex-col ">
             {keywords.map(item => (
-              <View className="flex flex-row" key={item.id}>
-                <Image
-                  source={
-                    item.type === '가족'
-                      ? familyIcon
-                      : item.type === '일상'
-                      ? dailyIcon
-                      : item.type === '친구'
-                      ? friendIcon
-                      : item.type === '직장'
-                      ? workIcon
-                      : item.type === '연인'
-                      ? loverIcon
-                      : ''
-                  }
-                />
-
-                <View className="flex flex-col">
-                  <Text>{item.type}</Text>
-                  <Text>{item.keywordText}</Text>
-                </View>
-              </View>
+              <Keyword
+                key={item.id}
+                type={item.type}
+                keywordText={item.keywordText}
+              />
             ))}
-            <Text></Text>
-          </View>
-        </ScrollView>
+          </ScrollView>
+        </View>
       </View>
     </>
   );

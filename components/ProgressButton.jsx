@@ -2,7 +2,7 @@ import {Pressable, Text, View} from 'react-native';
 
 export default function ProgressButton({actiavted, onPressIn, text}) {
   return (
-    <View className="py-[10px] px-6 mb-9">
+    <View className="py-[10px] px-[24px] mb-[36px]">
       <Pressable onPressIn={onPressIn} className={`${actiavted ? 'bg-[#606BFF]' : 'bg-[#D0D5DD]'} px-3 py-4 rounded-[8px] flex items-center`}>
         <Text className={`${actiavted? 'color-[#FFFFFF]' : 'color-[#98A2B3]'} text-base`}>{text}</Text>
       </Pressable>

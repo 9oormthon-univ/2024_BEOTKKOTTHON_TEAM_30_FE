@@ -8,7 +8,6 @@ import workIcon from '../assets/twinkleWork.png';
 import familyIcon from '../assets/twinkleFamily.png';
 import dailyIcon from '../assets/twinkleDaily.png';
 
-
 const AssignTypes = [
   {id: 0, text: '가족', icon: familyIcon},
   {id: 1, text: '직장', icon: workIcon},
@@ -17,9 +16,13 @@ const AssignTypes = [
   {id: 4, text: '연인', icon: loverIcon},
 ];
 
-export default function Assigning({type, isNameOk, setIsNameOk, setKeywordText, setType}) {
-  
-
+export default function Assigning({
+  type,
+  isNameOk,
+  setIsNameOk,
+  setKeywordText,
+  setType,
+}) {
   function keywordHandler(keyword) {
     const validationResult = nameValidator(keyword);
     setIsNameOk(validationResult);
@@ -28,21 +31,21 @@ export default function Assigning({type, isNameOk, setIsNameOk, setKeywordText, 
     }
   }
   return (
-    <View className="px-6 pt-12 flex items-start flex-1">
-      <Text className=" text-xl font-bold mb-2 ">어떻게 부르나요?</Text>
+    <View className="px-[24px] pt-[48px] flex items-start flex-1">
+      <Text className=" text-[20px] font-bold mb-[8px] ">어떻게 부르나요?</Text>
       <Text className={isNameOk ? '{color-[#98A2B3]' : 'color-[#FF6060]'}>
         공백, 영문, 숫자, 특수기호 불가
       </Text>
       <TextInput
         onChangeText={keywordHandler}
-        className="color-[#98A2B3] mt-6 text-xl"
+        className="color-[#98A2B3] mt-[24px] text-[20px]"
         placeholder="자주 불리는 키워드를 적어주세요."
       />
 
-      <Text className=" text-xl font-bold mt-12 mb-4">
+      <Text className=" text-[20px] font-bold mt-[48px] mb-[16px]">
         누가 혹은 어디에서 부르나요?
       </Text>
-      <View className="flex flex-row justify-between px-2 w-full">
+      <View className="flex flex-row justify-between px-[8px] w-full">
         {AssignTypes.map(item => (
           <AssignTypeItem
             onPressIn={type => setType(type)}

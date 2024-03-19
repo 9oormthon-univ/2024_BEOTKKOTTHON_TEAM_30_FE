@@ -34,7 +34,7 @@ export default function NavBar() {
   
 
   return (
-    <View className="mb-9 flex flex-row justify-evenly">
+    <View className="mb-[36px] flex flex-row justify-evenly">
       {NavBars.map(item => (
         <NavBarButton
           key={item.id}
