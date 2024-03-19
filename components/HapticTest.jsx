@@ -1,4 +1,4 @@
-import {Text} from 'react-native';
+import { View, Text, Pressable, TextBase } from 'react-native';
 import { HapticEngine } from 'react-native-core-haptics-api';
 
 export default function HapticTest(){
@@ -47,34 +47,14 @@ export default function HapticTest(){
 
   };
 
-  useEffect(() => {
-    hapticStart()
-      .then(() => {
-        setResult("Finished playing example! :)");
-      })
-      .catch(() => {
-        setResult("Unable to play example");
-      })
-  }, []);
   
   return (
     <View>
-      <Text>haptic</Text>
+      <Pressable onPressIn={() => hapticStart()}>
+        <Text>Press me!</Text>
+      </Pressable>
     </View>
   );
 
-
-/*
-const styles = StyleSheet.create({
-  button: {
-    padding: 20,
-    backgroundColor: 'blue',
-    borderRadius: 5,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 18,
-  },
-});*/
 
 }
