@@ -4,6 +4,7 @@ import LoginPage from './LoginPage';
 import {View, Text, Image} from 'react-native';
 import logo from '../assets/logo-bigger.png';
 import MainPage from './MainPage';
+import AssignPage from './AssignPage';
 
 export default function Content() {
   const {userLoc} = useContext(UserLocContext);
@@ -19,7 +20,9 @@ export default function Content() {
       </View>
     );
   } else if (userLoc === 'home' || userLoc === 'add' || userLoc === 'setting') {
-    content = <MainPage tab={userLoc} />;
+    content = <MainPage />;
+  } else if(userLoc === 'assign'){
+    content = <AssignPage />
   }
 
   return content; 

@@ -31,7 +31,7 @@ export default function LoginPage() {
     <>
       <Header />
       <LoginMain setName={userNameHandler} isNameOk={isNameOk} />
-      <ProgressButton onPressIn={pressHandler} isNameOk={isNameOk} />
+      <ProgressButton onPressIn={pressHandler} actiavted={isNameOk} text="다음"/>
     </>
   );
 }

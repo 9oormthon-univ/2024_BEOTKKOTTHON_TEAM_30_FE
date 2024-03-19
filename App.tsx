@@ -12,6 +12,7 @@ import Toast from 'react-native-toast-message';
 import {NavigationContainer} from '@react-navigation/native';
 import {UserLocContextProvider} from './contexts/userloc';
 import Content from './components/Content';
+import {KeywordsContextProvider} from './contexts/keywords';
 
 function App(): React.JSX.Element {
   function showToast() {
@@ -24,17 +25,19 @@ function App(): React.JSX.Element {
 
   return (
     <UserLocContextProvider>
-      <NavigationContainer>
-        <View className="flex flex-1 border-solid">
-          <Content />
-          {/* <VoicRecog /> */}
+      <KeywordsContextProvider>
+        <NavigationContainer>
+          <View className="flex flex-1 border-solid">
+            <Content />
+            {/* <VoicRecog /> */}
 
-          {/* <Button title="show toast" onPress={showToast}>
+            {/* <Button title="show toast" onPress={showToast}>
           click here to test Toast message
         </Button> */}
-        </View>
-        <Toast />
-      </NavigationContainer>
+          </View>
+          <Toast />
+        </NavigationContainer>
+      </KeywordsContextProvider>
     </UserLocContextProvider>
   );
 }
