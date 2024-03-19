@@ -22,7 +22,16 @@ export default function AssignPage() {
       moveLoc('add');
     } else {
       setIsAssigned(true);
-      addKeyword({id: Math.random(), type: type, keywordText: keywordText});
+      if (type === '긴급') {
+        addKeyword({
+          id: Math.random(),
+          type: type,
+          keywordText: keywordText,
+          danger: danger,
+        });
+      } else {
+        addKeyword({id: Math.random(), type: type, keywordText: keywordText});
+      }
     }
   }
 
@@ -41,7 +50,7 @@ export default function AssignPage() {
       )}
       {!isAssigned && (
         <Assigning
-          setDanger={(r) => setDanger(r)}
+          setDanger={r => setDanger(r)}
           isNameOk={isNameOk}
           type={type}
           setIsNameOk={result => setIsNameOk(result)}

@@ -20,9 +20,8 @@ export default function LoginPage() {
   }
 
   function pressHandler() {
-    // 진동 생성 기능 , 스플래시 업데이트 후 수정 요망!
     if (isNameOk) {
-      moveLoc('home');
+      moveLoc('splash');
     }
   }
   

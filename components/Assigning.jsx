@@ -42,7 +42,7 @@ export default function Assigning({
   }
   return (
     <View className="px-[24px] pt-[48px] flex items-start flex-1">
-      <Text className=" text-[20px] font-bold mb-[8px] ">어떻게 부르나요?</Text>
+      <Text className=" text-[20px] font-bold mb-[8px]">어떻게 부르나요?</Text>
       <Text
         className={`${
           isNameOk ? '{color-[#98A2B3]' : 'color-[#FF6060]'
@@ -51,7 +51,7 @@ export default function Assigning({
       </Text>
       <TextInput
         onChangeText={keywordHandler}
-        className="color-[#98A2B3] mt-[24px] text-[20px]"
+        className="color-[#98A2B3] mt-[24px] text-[20px] color-[#182230]"
         placeholder="자주 불리는 키워드를 적어주세요."
       />
 
