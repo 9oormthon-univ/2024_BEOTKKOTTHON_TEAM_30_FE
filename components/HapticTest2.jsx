@@ -1,6 +1,6 @@
 import { NativeModules, TouchableOpacity, Text } from 'react-native';
 
-export default function HapticTest(){
+export default function HapticTest2(){
   
     const { CHHapticEvent } = NativeModules;
     const vibrationPattern = [1.0, 2.0, 1.0, 0.5, 1.0];
@@ -11,8 +11,7 @@ export default function HapticTest(){
     vibrationPattern.forEach(duration => {
         if (duration > 0) {
             // 진동 이벤트 추가
-            pattern.push({
-                [CHHapticEvent.Key.event]: {
+            pattern.push({                [CHHapticEvent.Key.event]: {
                     [CHHapticEvent.Key.eventType]: CHHapticEvent.EventType.hapticTransient,  
                     [CHHapticEvent.Key.time]: CHHapticEvent.TimeImmediate + currentTime,
                     [CHHapticEvent.Key.eventDuration]: duration

@@ -10,7 +10,7 @@ export default function HapticTest(){
         throw new Error('Device does not support haptics');
       }
 
-      const hapticEvent = {};
+    const hapticEvent = {};
     hapticEvent.duration = 0.5;
     hapticEvent.relativeTime = 0;
     hapticEvent.eventType = { rawValue: "HapticContinuous" };
