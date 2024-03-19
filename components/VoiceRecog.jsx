@@ -37,11 +37,9 @@ export default function VoicRecog() {
     }catch(e){
         console.error(e);
     }
-z
   }
 
   return (
-    
     <View>
       <Text>Transcript</Text>
       {results.map((result, index) => (
