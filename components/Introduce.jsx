@@ -1,6 +1,7 @@
-import { View, StyleSheet,Image, Dimensions,Text } from "react-native";
+import { View, StyleSheet,Image, Dimensions,Text, TouchableOpacity } from "react-native";
 import backgroungIMG from "../assets/backContent.png"
-import Header from "./Header";
+import logoImg from "../assets/behindu-logo.png";
+import backIcon from "../assets/backIcon.png";
 
 const { width, height } = Dimensions.get('window');
 
@@ -9,7 +10,12 @@ export default function Introduce() {
     return(
         <View style={styles.container}>
             <Image source={backgroungIMG} style={styles.backgroundImage} />
-            <Header />
+            <View style={styles.headerContainer}>
+                <TouchableOpacity style={styles.backIconContainer}>
+                    <Image source={backIcon} style={styles.backIcon} />
+                </TouchableOpacity>
+                <Image source={logoImg} style={styles.logo} />
+            </View>
             <View style={styles.textContainer}>
                 <Text style={styles.text}>
                     안녕하세요{"\n"}
@@ -41,13 +47,33 @@ const styles = StyleSheet.create({
     },
     text: {
         textAlign: 'center',
-        fontSize: '30%',
+        fontSize: Dimensions.get('window').width / 13,
         fontWeight: 'bold',
         marginBottom:10,
         lineHeight: 43,
     },
     subText: {
-        fontSize: 15,
+        fontSize: Dimensions.get('window').width / 24,
         color: 'gray',
+    },headerContainer: {
+        width: '100%',
+        position: 'absolute', // Header를 화면의 상단에 고정
+        top: 30, // 상단 부터의 거리
+        flexDirection: 'row', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+    },
+    backIconContainer: {
+        position: 'absolute', 
+        left: 20, 
+    },
+    backIcon: {
+        width: 20, 
+        height: 20, 
+    },
+    logo: {
+        width: Dimensions.get('window').width / 4,
+        height: 40,
+        resizeMode: 'contain',
     },
 });
