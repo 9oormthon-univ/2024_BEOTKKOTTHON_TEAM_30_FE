@@ -5,15 +5,16 @@
  * @format
  */
 
+import {View} from 'react-native';
 import React, { useEffect, useState } from 'react';
-import {Button, View} from 'react-native';
+import VoicRecog from './components/VoiceRecog';
 import Toast from 'react-native-toast-message';
 import {NavigationContainer} from '@react-navigation/native';
 import {UserLocContextProvider} from './contexts/userloc';
 import Content from './components/Content';
 import Splash from './components/Splash';
 
-function App() {
+function App(): React.JSX.Element {
   function showToast() {
     Toast.show({
       type: 'success',
@@ -33,7 +34,6 @@ function App() {
   }, []);
 
   return (
-       
     <UserLocContextProvider>
       <NavigationContainer>
         <View className="flex flex-1 border-solid">
