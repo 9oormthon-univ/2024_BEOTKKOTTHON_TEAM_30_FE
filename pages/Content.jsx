@@ -8,6 +8,8 @@ import AssignPage from './AssignPage';
 import SplashPage from './SplashPage';
 import GreetingPage from './GreetingPage';
 import IntroducePage from './IntroducePage';
+import InitSetting1 from './InitSetting1';
+import InitSetting2 from './InitSetting2';
 
 export default function Content() {
   const {userLoc} = useContext(UserLocContext);
@@ -26,6 +28,11 @@ export default function Content() {
     content = <AssignPage />;
   } else if(userLoc === 'introduce'){
     content = <IntroducePage />
+  }else if(userLoc === 'init1'){
+    content = <InitSetting1 />
+  }
+  else if(userLoc === 'init2'){
+    content = <InitSetting2 />
   }
 
   return content;

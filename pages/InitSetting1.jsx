@@ -6,7 +6,9 @@ export default function InitSetting1() {
  
   return (
     <>
-      <Header />
+      <Header 
+        back={'login'} 
+      />
         <View className="px-[24px] pt-[48px] flex items-start flex-1">
         <Text className="text-[30px] font-bold mb-[12px]">
             강아지를{'\n'}무서워하시나요?

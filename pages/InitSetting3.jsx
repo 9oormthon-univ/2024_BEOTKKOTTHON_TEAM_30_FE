@@ -3,7 +3,7 @@ import ProgressButton from '../components/defaults/ProgressButton';
 import {Text, View} from 'react-native';
 import ToggleContainer from '../components/defaults/ToggleContainer';
 
-export default function InitSetting2() {
+export default function InitSetting3() {
 
   function pressHandler() {
         
@@ -11,7 +11,9 @@ export default function InitSetting2() {
 
   return (
     <>
-      <Header />
+      <Header 
+        back={'init2'} 
+      />
       <View className="flex-1">
 
         <View className="px-[24px] pt-[48px] flex items-start">

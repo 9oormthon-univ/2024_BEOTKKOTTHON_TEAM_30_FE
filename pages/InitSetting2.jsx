@@ -11,7 +11,9 @@ export default function InitSetting2() {
 
   return (
     <>
-      <Header />
+      <Header 
+        back={'init1'} 
+      />
       <View className="flex-1">
 
         <View className="px-[24px] pt-[48px] flex items-start">
