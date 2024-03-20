@@ -5,15 +5,15 @@
  * @format
  */
 
-import React from 'react';
-import {View} from 'react-native';
-import VoicRecog from './components/VoiceRecog';
+import React, { useEffect, useState } from 'react';
+import {Button, View} from 'react-native';
 import Toast from 'react-native-toast-message';
 import {NavigationContainer} from '@react-navigation/native';
 import {UserLocContextProvider} from './contexts/userloc';
 import Content from './components/Content';
+import Splash from './components/Splash';
 
-function App(): React.JSX.Element {
+function App() {
   function showToast() {
     Toast.show({
       type: 'success',
@@ -22,11 +22,22 @@ function App(): React.JSX.Element {
     });
   }
 
+  const [currentScreen, setCurrentScreen] = useState('Splash');
+
+  useEffect(() => {
+    // 3초 후에 Splash 종료 
+
+    setTimeout(() => {
+      setCurrentScreen('Main');
+    }, 3000);
+  }, []);
+
   return (
+       
     <UserLocContextProvider>
       <NavigationContainer>
         <View className="flex flex-1 border-solid">
-          <Content />
+          {currentScreen==='Splash' ?  <Splash/> : <Content/> }
           {/* <VoicRecog /> */}
 
           {/* <Button title="show toast" onPress={showToast}>
