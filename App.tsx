@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import {Button, View, Text, Image} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import VoicRecog from './components/VoiceRecog';
 import Toast from 'react-native-toast-message';
 import {NavigationContainer} from '@react-navigation/native';
