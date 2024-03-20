@@ -40,7 +40,7 @@ export default function NavBar() {
   
 
   return (
-    <View className="mb-[36px] h-[64px] flex flex-row items-center justify-evenly bg-white  border-t-[1px]  border-gray-200 ">
+    <View className="pb-[36px] h-[100px] flex flex-row items-center justify-evenly bg-white  border-t-[1px]  border-gray-200 ">
       {NavBars.map(item => (
         <NavBarButton
           key={item.id}

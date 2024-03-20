@@ -9,7 +9,7 @@ export default function Setting() {
   const {
     alertIsEnabled,
     hapticIsEnabled,
-    emerSituationIsEnabled,
+    emerSituationIsEnabled, 
     emerKeywordIsEnabled,
   } = settings;
 

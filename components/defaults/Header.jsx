@@ -7,21 +7,21 @@ import logoImage from '../../assets/logos/logo.png';
 export default function Header({back, text}) {
   const {moveLoc} = useContext(UserLocContext);
   return (
-    <View className="flex flex-row mx-[16px] mt-[44px] justify-between items-end">
+    <View className="flex flex-row mt-[44px] justify-between items-center mx-[24px]">
       {back && (
         <Pressable
+          className="w-[24px]"
           onPressIn={() => {
             moveLoc(back);
           }}>
           <Image source={leftArrow} />
         </Pressable>
       )}
-      {!back && <Image />}
+      {!back && <Image className="w-[24px]"/>}
 
       {text && <Text className="pt-3 text-[16px] font-bold">{text}</Text>}
       {!text && <Image className="my-[12px]" source={logoImage} />}
-
-      <Image />
+      <Image className="w-[24px]" />
     </View>
   );
 }

@@ -1,15 +1,15 @@
-import {useEffect, useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import Voice from '@react-native-voice/voice';
-import { Button, Text, View } from 'react-native';
-
+import {Button, Text, View} from 'react-native';
+import {KeywordsContext} from '../contexts/keywords';
 
 export default function VoicRecog() {
   const [recognized, setRecognized] = useState('');
   const [started, setStarted] = useState('');
-  const [results, setResults] = useState([]);
+  const {keywords} = useContext(KeywordsContext);
+  
 
   useEffect(() => {
-    
     Voice.onSpeechStart = onSpeechStart;
     Voice.onSpeechRecognized = onSpeechRecognized;
     Voice.onSpeechResults = onSpeechResults;
@@ -28,26 +28,26 @@ export default function VoicRecog() {
   };
 
   const onSpeechResults = e => {
-    setResults(e.value);
+    let longString = e.value[0];
+    let wordsArray = longString.split(' ');
+    let lastWord = wordsArray[wordsArray.length - 1];
+    console.log(lastWord);
+    console.log(keywords);
   };
 
-  async function _startRecognition(){
-    try{
-        await Voice.start('kor'); 
-    }catch(e){
-        console.error(e);
+  async function _startRecognition() {
+    try {
+      await Voice.start('kor');
+    } catch (e) {
+      console.error(e);
     }
-
   }
 
+  useEffect(() => {
+    _startRecognition();
+  }, [_startRecognition]);
+
   return (
-    
-    <View>
-      <Text>Transcript</Text>
-      {results.map((result, index) => (
-        <Text key={index}>{result}</Text>
-      ))}
-      <Button onPress={_startRecognition} title="Start" />
-    </View>
+    <View>{/* <Button onPress={_startRecognition} title="Start" /> */}</View>
   );
 }

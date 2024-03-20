@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, View, Text, Image} from 'react-native';
 import VoicRecog from './components/VoiceRecog';
 import Toast from 'react-native-toast-message';
@@ -40,21 +40,21 @@ function App(): React.JSX.Element {
 
   return (
     <UserLocContextProvider>
-      <KeywordsContextProvider>
-        <SettingsContextProvider>
+      <SettingsContextProvider>
+        <KeywordsContextProvider>
           <NavigationContainer>
             <View className="flex flex-1 border-solid">
               <Content />
-              {/* <VoicRecog /> */}
+              <VoicRecog />
 
               {/* <Button title="show toast" onPress={showToast}>
-              click here to test Toast message
-            </Button> */}
+                click here to test Toast message
+              </Button> */}
             </View>
             <Toast config={toastConfig} />
           </NavigationContainer>
-        </SettingsContextProvider>
-      </KeywordsContextProvider>
+        </KeywordsContextProvider>
+      </SettingsContextProvider>
     </UserLocContextProvider>
   );
 }

@@ -9,21 +9,6 @@ import Assigning from '../components/assignPage/Assigning';
 import {UserLocContext} from '../contexts/userloc';
 
 
-import bgFamily from '../assets/backgrounds/pop-family.png';
-import Family from '../assets/twinkles/family-a.png'; 
-
-import bgWork from '../assets/backgrounds/pop-work.png';
-import Work from '../assets/twinkles/work-a.png'; 
-
-import bgFriend from '../assets/backgrounds/pop-friend.png';
-import Friend from '../assets/twinkles/friend-a.png'; 
-
-
-import bgLover from '../assets/backgrounds/pop-lover.png';
-import Lover from '../assets/twinkles/lover-a.png'; 
-
-import bgEmergency from '../assets/backgrounds/pop-emergency.png';
-import emergency from '../assets/twinkles/red-a.png'; 
 
 import {AssignsExplanation} from '../UXwritings/writings'
 
