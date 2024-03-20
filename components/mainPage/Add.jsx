@@ -1,17 +1,18 @@
 import {Image, Pressable, ScrollView, Text, View} from 'react-native';
-import CalledKeywordItem from './CalledKeywordItem';
+import CalledKeywordItem from '../addTab/CalledKeywordItem';
 
-import workIcon from '../assets/twinkleWork.png';
-import familyIcon from '../assets/twinkleFamily.png';
-import friendIcon from '../assets/twinkleDaily.png';
-import emergencyIcon from '../assets/twinkleRed.png';
-import loverIcon from '../assets/twinkleLover.png';
 
-import assignButton from '../assets/assignButton.png';
+import workIcon from '../../assets/twinkles/work-a.png';
+import familyIcon from '../../assets/twinkles/family-a.png';
+import friendIcon from '../../assets/twinkles/friend-a.png';
+import emergencyIcon from '../../assets/twinkles/red-a.png';
+import loverIcon from '../../assets/twinkles/lover-a.png';
+
+import assignButton from '../../assets/buttons/add.png';
 import {useContext} from 'react';
-import {UserLocContext} from '../contexts/userloc';
-import {KeywordsContext} from '../contexts/keywords';
-import Keyword from './Keyword';
+import {UserLocContext} from '../../contexts/userloc';
+import {KeywordsContext} from '../../contexts/keywords';
+import Keyword from '../addTab/Keyword';
 
 const CalledKeywords = [
   {id: 3, icon: familyIcon},

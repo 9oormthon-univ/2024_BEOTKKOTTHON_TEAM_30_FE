@@ -1,15 +1,21 @@
 import {View} from 'react-native';
+
+import home from '../../assets/buttons/home.png';
+import add from '../../assets/buttons/assign.png';
+import setting from '../../assets/buttons/setting.png';
+
 import NavBarButton from './NavBarButton';
-import add from '../assets/AddButton.png';
-import addActivated from '../assets/AddButtonActivated.png';
 
-import home from '../assets/HomeButton.png';
-import homeActivated from '../assets/HomeButtonActivated.png';
+import homeActivated from '../../assets/buttons/home-a.png';
+import addActivated from '../../assets/buttons/assign-a.png';
+import settingActivated from '../../assets/buttons/setting-a.png';
 
-import setting from '../assets/SettingButton.png';
-import settingActivated from '../assets/SettingButtonActivated.png';
+
+
+
+
 import {useContext} from 'react';
-import { UserLocContext } from '../contexts/userloc';
+import { UserLocContext } from '../../contexts/userloc';
 
 const NavBars = [
   {

@@ -1,7 +1,7 @@
 import {useContext, useState} from 'react';
-import Header from './Header';
-import LoginMain from './LoginMain';
-import ProgressButton from './ProgressButton';
+import Header from '../components/defaults/Header';
+import LoginMain from '../components/loginPage/LoginMain';
+import ProgressButton from '../components/defaults/ProgressButton';
 import {UserLocContext} from '../contexts/userloc';
 import nameValidator from '../functions/nameValidator';
 

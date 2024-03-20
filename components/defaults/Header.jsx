@@ -1,5 +1,6 @@
 import { Image, View } from "react-native";
-import logoImage from '../assets/behindu-logo.png';
+import logoImage from '../../assets/logos/logo.png';
+
 
 export default function Header() {
   

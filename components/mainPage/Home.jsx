@@ -1,8 +1,8 @@
 import {Image, Pressable, Text, View} from 'react-native';
-import twinkle from '../assets/renderTwinkle.png';
-import background from '../assets/background.png';
+import twinkle from '../../assets/twinkles/rendered.png';
+import background from '../../assets/backgrounds/gradient.png';
 import {useContext} from 'react';
-import {UserLocContext} from '../contexts/userloc';
+import {UserLocContext} from '../../contexts/userloc';
 
 export default function Home() {
   const {userName} = useContext(UserLocContext);

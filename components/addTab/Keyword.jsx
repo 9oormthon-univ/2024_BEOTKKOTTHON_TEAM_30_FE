@@ -1,11 +1,10 @@
 import {Image, Text, View} from 'react-native';
 
-import loverIcon from '../assets/twinkleLover.png';
-import friendIcon from '../assets/twinkleFriend.png';
-import workIcon from '../assets/twinkleWork.png';
-import familyIcon from '../assets/twinkleFamily.png';
-import dailyIcon from '../assets/twinkleDaily.png';
-import emergencyIcon from '../assets/twinkleRed.png';
+import workIcon from '../../assets/twinkles/work-a.png';
+import familyIcon from '../../assets/twinkles/family-a.png';
+import friendIcon from '../../assets/twinkles/friend-a.png';
+import emergencyIcon from '../../assets/twinkles/red-a.png';
+import loverIcon from '../../assets/twinkles/lover-a.png';
 
 export default function Keyword({type, keywordText}) {
   return (

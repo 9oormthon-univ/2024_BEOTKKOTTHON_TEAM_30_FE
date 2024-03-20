@@ -1,19 +1,19 @@
 import {Pressable, Text, View} from 'react-native';
-import Header from './Header';
+import Header from '../components/defaults/Header';
 
 import {useContext} from 'react';
 import {UserLocContext} from '../contexts/userloc';
-import NavBar from './NavBar';
-import Home from './Home';
-import Add from './Add';
-import Setting from './Setting';
+import NavBar from '../components/defaults/NavBar';
+import Home from '../components/mainPage/Home';
+import Add from '../components/mainPage/Add';
+import Setting from '../components/mainPage/Setting';
 
 export default function MainPage() {
   const {userLoc} = useContext(UserLocContext);
   let tab;
   if (userLoc === 'home') {
     tab = (
-      <View className="flex flex-1 w-full ">
+      <View className="flex flex-1 w-full">
         <Home />
       </View>
     );

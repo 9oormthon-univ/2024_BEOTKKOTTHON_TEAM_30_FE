@@ -11,16 +11,16 @@ import VoicRecog from './components/VoiceRecog';
 import Toast from 'react-native-toast-message';
 import {NavigationContainer} from '@react-navigation/native';
 import {UserLocContextProvider} from './contexts/userloc';
-import Content from './components/Content';
+import Content from './pages/Content';
 import {KeywordsContextProvider} from './contexts/keywords';
 
 
-import loverIcon from './assets/twinkleLover.png';
-import friendIcon from './assets/twinkleFriend.png';
-import workIcon from './assets/twinkleWork.png';
-import familyIcon from './assets/twinkleFamily.png';
-import dailyIcon from './assets/twinkleDaily.png';
-import emergencyIcon from './assets/twinkleRed.png';
+import workIcon from './assets/twinkles/work-a.png';
+import familyIcon from './assets/twinkles/family-a.png';
+import friendIcon from './assets/twinkles/friend-a.png';
+import emergencyIcon from './assets/twinkles/red-a.png';
+import loverIcon from './assets/twinkles/lover-a.png';
+
 
 
 const toastConfig = {
@@ -49,9 +49,9 @@ function App(): React.JSX.Element {
             <Content />
             {/* <VoicRecog /> */}
 
-            <Button title="show toast" onPress={showToast}>
+            {/* <Button title="show toast" onPress={showToast}>
               click here to test Toast message
-            </Button>
+            </Button> */}
           </View>
           <Toast config={toastConfig} />
         </NavigationContainer>

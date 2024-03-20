@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {Switch, Text, View} from 'react-native';
-import SettingItem from './SettingItem';
+import SettingItem from '../settingTab/SettingItem';
 
 export default function Setting() {
   const [alertIsEnabled, setAlertIsEnabled] = useState(true);

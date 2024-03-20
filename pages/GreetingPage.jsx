@@ -1,8 +1,8 @@
 import {Image, Pressable, Text, View} from 'react-native';
-import bg from '../assets/loginedBackground.png';
+import bg from '../assets/backgrounds/logined.png';
 import {useContext} from 'react';
 import {UserLocContext} from '../contexts/userloc';
-import Header from './Header';
+import Header from '../components/defaults/Header';
 
 export default function GreetingPage() {
   const {userName, moveLoc} = useContext(UserLocContext);

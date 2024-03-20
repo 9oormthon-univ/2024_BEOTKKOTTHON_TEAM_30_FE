@@ -1,15 +1,15 @@
 import {Text, TextInput, View} from 'react-native';
-import AssignTypeItem from './AssignTypeItem';
-import nameValidator from '../functions/nameValidator';
+import nameValidator from '../../functions/nameValidator';
 
-import loverIcon from '../assets/twinkleLover.png';
-import workIcon from '../assets/twinkleWork.png';
-import familyIcon from '../assets/twinkleFamily.png';
-import friendIcon from '../assets/twinkleDaily.png';
-import emergencyIcon from '../assets/twinkleRed.png';
-import josimIcon from '../assets/josimTwinkle.png';
-import dangerIcon from '../assets/dangerTwinkle.png';
-import fleeIcon from '../assets/fleeTwinkle.png';
+import workIcon from '../../assets/twinkles/work-a.png';
+import familyIcon from '../../assets/twinkles/family-a.png';
+import friendIcon from '../../assets/twinkles/friend-a.png';
+import emergencyIcon from '../../assets/twinkles/red-a.png';
+import loverIcon from '../../assets/twinkles/lover-a.png';
+import josimIcon from '../../assets/twinkles/josim-a.png';
+import dangerIcon from '../../assets/twinkles/danger-a.png';
+import fleeIcon from '../../assets/twinkles/flee-a.png';
+import AssignTypeItem from './AssignTypeItem';
 
 const AssignTypes = [
   {id: 0, text: '가족', icon: familyIcon},
@@ -42,7 +42,7 @@ export default function Assigning({
   }
   return (
     <View className="px-[24px] pt-[48px] flex items-start flex-1">
-      <Text className=" text-[20px] font-bold mb-[8px]">어떻게 부르나요?</Text>
+      <Text className="text-[20px] font-bold mb-[8px]">어떻게 부르나요?</Text>
       <Text
         className={`${
           isNameOk ? '{color-[#98A2B3]' : 'color-[#FF6060]'

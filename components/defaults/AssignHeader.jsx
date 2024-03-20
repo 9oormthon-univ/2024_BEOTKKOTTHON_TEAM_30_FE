@@ -1,7 +1,7 @@
 import {Image, Pressable, Text, View} from 'react-native';
-import leftArrow from '../assets/leftArrow.png';
+import leftArrow from '../../assets/buttons/back.png';
 import { useContext } from 'react';
-import { UserLocContext } from '../contexts/userloc';
+import { UserLocContext } from '../../contexts/userloc';
 
 export default function AssignHeader({text}) {
   const {moveLoc} = useContext(UserLocContext); 

@@ -1,27 +1,31 @@
 import {Image, Text, View} from 'react-native';
 
-import ProgressButton from './ProgressButton';
+import ProgressButton from '../components/defaults/ProgressButton';
 
 import {useContext, useState} from 'react';
 import {KeywordsContext} from '../contexts/keywords';
-import AssignHeader from './AssignHeader';
-import Assigning from './Assigning';
+import AssignHeader from '../components/defaults/AssignHeader';
+import Assigning from '../components/assignPage/Assigning';
 import {UserLocContext} from '../contexts/userloc';
 
-import bgFamily from '../assets/BGassignedFamily.png';
-import Family from '../assets/twinkleFamily.png';
 
-import bgWork from '../assets/BGassignedWork.png';
-import Work from '../assets/twinkleWork.png';
+import bgFamily from '../assets/backgrounds/pop-family.png';
+import Family from '../assets/twinkles/family-a.png'; 
 
-import bgFriend from '../assets/BGassignedFriend.png';
-import Friend from '../assets/twinkleDaily.png';
+import bgWork from '../assets/backgrounds/pop-work.png';
+import Work from '../assets/twinkles/work-a.png'; 
 
-import bgLover from '../assets/BGassignedLover.png';
-import Lover from '../assets/twinkleLover.png';
+import bgFriend from '../assets/backgrounds/pop-friend.png';
+import Friend from '../assets/twinkles/friend-a.png'; 
 
-import bgEmergency from '../assets/BGassignedEmergency.png';
-import emergency from '../assets/twinkleRed.png';
+
+import bgLover from '../assets/backgrounds/pop-lover.png';
+import Lover from '../assets/twinkles/lover-a.png'; 
+
+import bgEmergency from '../assets/backgrounds/pop-emergency.png';
+import emergency from '../assets/twinkles/red-a.png'; 
+
+
 
 const AssignsExplanation = [
   {
