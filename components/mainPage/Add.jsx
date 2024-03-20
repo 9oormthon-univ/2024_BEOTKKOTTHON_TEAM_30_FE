@@ -15,11 +15,11 @@ import {KeywordsContext} from '../../contexts/keywords';
 import Keyword from '../addTab/Keyword';
 
 const CalledKeywords = [
-  {id: 3, icon: familyIcon},
-  {id: 2, icon: workIcon},
-  {id: 1, icon: friendIcon},
-  {id: 0, icon: loverIcon},
-  {id: 5, icon: emergencyIcon},
+  {id: 0, icon: familyIcon},
+  {id: 1, icon: workIcon},
+  {id: 2, icon: friendIcon},
+  {id: 3, icon: loverIcon},
+  {id: 4, icon: emergencyIcon},
 ];
 
 export default function Add() {

@@ -4,7 +4,7 @@ import ProgressButton from '../components/defaults/ProgressButton';
 
 import {useContext, useState} from 'react';
 import {KeywordsContext} from '../contexts/keywords';
-import AssignHeader from '../components/defaults/AssignHeader';
+import Header from '../components/defaults/Header';
 import Assigning from '../components/assignPage/Assigning';
 import {UserLocContext} from '../contexts/userloc';
 
@@ -25,40 +25,7 @@ import Lover from '../assets/twinkles/lover-a.png';
 import bgEmergency from '../assets/backgrounds/pop-emergency.png';
 import emergency from '../assets/twinkles/red-a.png'; 
 
-
-
-const AssignsExplanation = [
-  {
-    type: '가족',
-    icon: Family,
-    bg: bgFamily,
-    expl: '가족이 부르실 때 알려드릴게요!',
-  },
-  {
-    type: '직장',
-    icon: Work,
-    bg: bgWork,
-    expl: '직장에서 부르실 때 알려드릴게요!',
-  },
-  {
-    type: '친구',
-    icon: Friend,
-    bg: bgFriend,
-    expl: '친구가 부르실 때 알려드릴게요!',
-  },
-  {
-    type: '연인',
-    icon: Lover,
-    bg: bgLover,
-    expl: '연인이 부르실 때 알려드릴게요!',
-  },
-  {
-    type: '긴급',
-    icon: emergency,
-    bg: bgEmergency,
-    expl: '긴급상황 시 알려드릴게요!',
-  },
-];
+import {AssignsExplanation} from '../UXwritings/writings'
 
 export default function AssignPage() {
   const [isNameOk, setIsNameOk] = useState(false);
@@ -100,7 +67,8 @@ export default function AssignPage() {
 
   return (
     <>
-      <AssignHeader text="키워드 추가" />
+    
+      <Header back="add" text="키워드 추가" />
       {isAssigned && (
         <>
           <Image source={bg} className="absolute top-[320px] left-[40px]" />

@@ -14,14 +14,12 @@ import {UserLocContextProvider} from './contexts/userloc';
 import Content from './pages/Content';
 import {KeywordsContextProvider} from './contexts/keywords';
 
-
 import workIcon from './assets/twinkles/work-a.png';
 import familyIcon from './assets/twinkles/family-a.png';
 import friendIcon from './assets/twinkles/friend-a.png';
 import emergencyIcon from './assets/twinkles/red-a.png';
 import loverIcon from './assets/twinkles/lover-a.png';
-
-
+import {SettingsContextProvider} from './contexts/settings';
 
 const toastConfig = {
   newToast: ({text1}) => (
@@ -37,24 +35,25 @@ function App(): React.JSX.Element {
     Toast.show({
       type: 'newToast',
       text1: '친구가 구름님을 부르고 있나봐요!',
-      
     });
   }
 
   return (
     <UserLocContextProvider>
       <KeywordsContextProvider>
-        <NavigationContainer>
-          <View className="flex flex-1 border-solid">
-            <Content />
-            {/* <VoicRecog /> */}
+        <SettingsContextProvider>
+          <NavigationContainer>
+            <View className="flex flex-1 border-solid">
+              <Content />
+              {/* <VoicRecog /> */}
 
-            {/* <Button title="show toast" onPress={showToast}>
+              {/* <Button title="show toast" onPress={showToast}>
               click here to test Toast message
             </Button> */}
-          </View>
-          <Toast config={toastConfig} />
-        </NavigationContainer>
+            </View>
+            <Toast config={toastConfig} />
+          </NavigationContainer>
+        </SettingsContextProvider>
       </KeywordsContextProvider>
     </UserLocContextProvider>
   );

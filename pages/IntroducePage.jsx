@@ -1,7 +1,7 @@
 import { View, StyleSheet,Image, Dimensions,Text } from "react-native";
 import backgroungIMG from "../assets/backgrounds/introduce.png"
 import Header from "../components/defaults/Header";
-import AssignHeader from "../components/defaults/AssignHeader";
+import AssignHeader from "../components/defaults/Header";
 
 const { width, height } = Dimensions.get('window');
 

@@ -1,6 +1,7 @@
 import {Text, View, Switch} from 'react-native';
+import ToggleContainer from '../defaults/ToggleContainer';
 
-export default function SettingItem({p, title, what, setIsEnabled, isEnabled}) {
+export default function SettingItem({p, title, what, setIsEnabled, isEnabled, children}) {
   return (
     <>
       <View className="bg-white ">
@@ -14,17 +15,13 @@ export default function SettingItem({p, title, what, setIsEnabled, isEnabled}) {
             </Text>
           )}
         </View>
-        <View className="flex flex-row justify-between items-center  h-[66.56px] mx-[24px] my-[16px]">
-          <Text className="color-[#182230] text-[16px] font-bold">{what}</Text>
 
-          <Switch
-            trackColor={{false: '#767577', true: '#606BFF'}}
-            onValueChange={() => {
-              setIsEnabled(prev => !prev);
-            }}
-            value={isEnabled}
-          />
-        </View>
+        <ToggleContainer
+          what={what}
+          setIsEnabled={setIsEnabled}
+          isEnabled={isEnabled}
+        />
+        {children}
       </View>
       <View className="border-solid border-b-8 border-[#FAFAFA]"></View>
     </>
