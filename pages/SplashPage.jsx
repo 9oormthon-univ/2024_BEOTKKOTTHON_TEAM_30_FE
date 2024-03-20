@@ -14,7 +14,7 @@ export default function SplashPage() {
         </View>
     </View>
     )
-
+        
     
 };
 
