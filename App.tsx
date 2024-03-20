@@ -4,14 +4,14 @@
  *
  * @format
  */
-import React, { useEffect, useState } from 'react';
+
+import React from 'react';
 import {Button, View, Text, Image} from 'react-native';
 import VoicRecog from './components/VoiceRecog';
 import Toast from 'react-native-toast-message';
 import {NavigationContainer} from '@react-navigation/native';
 import {UserLocContextProvider} from './contexts/userloc';
 import Content from './pages/Content';
-import Splash from './components/Splash';
 import {KeywordsContextProvider} from './contexts/keywords';
 
 import workIcon from './assets/twinkles/work-a.png';
@@ -30,7 +30,6 @@ const toastConfig = {
   ),
 };
 
-
 function App(): React.JSX.Element {
   function showToast() {
     Toast.show({
@@ -39,26 +38,13 @@ function App(): React.JSX.Element {
     });
   }
 
-  const [currentScreen, setCurrentScreen] = useState('Splash');
-
-  useEffect(() => {
-    // 3초 후에 Splash 종료 
-
-    setTimeout(() => {
-      setCurrentScreen('Main');
-    }, 3000);
-  }, []);
-
-
-
-
   return (
     <UserLocContextProvider>
       <KeywordsContextProvider>
         <SettingsContextProvider>
           <NavigationContainer>
             <View className="flex flex-1 border-solid">
-            {currentScreen==='Splash' ?  <Splash/> : <Content/> }
+              <Content />
               {/* <VoicRecog /> */}
 
               {/* <Button title="show toast" onPress={showToast}>
