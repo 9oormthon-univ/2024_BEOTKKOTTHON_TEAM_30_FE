@@ -9,18 +9,19 @@ import {
 } from 'react-native';
 import backgroundImage from '../assets/backgrounds/gradient.png';
 import logo from '../assets/logos/logo-big.png';
-import { useContext, useEffect } from 'react';
-import { UserLocContext } from '../contexts/userloc';
+import {useContext, useEffect} from 'react';
+import {UserLocContext} from '../contexts/userloc';
 
 const {width, height} = Dimensions.get('window');
 
 export default function SplashPage() {
-    const {moveLoc} = useContext(UserLocContext);
-    useEffect(()=>{
-        const timer = setTimeout(()=>{ moveLoc('login') }, 2000);
-    }, [])
+  const {moveLoc} = useContext(UserLocContext);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      moveLoc('login');
+    }, 2000);
+  }, []);
 
-    
   return (
     <View style={styles.container}>
       <Image source={backgroundImage} style={styles.backgroundImage} />

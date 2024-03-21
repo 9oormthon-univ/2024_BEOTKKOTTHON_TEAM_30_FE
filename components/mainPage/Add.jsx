@@ -1,15 +1,15 @@
 import {Image, Pressable, ScrollView, Text, View} from 'react-native';
 import CalledKeywordItem from '../addTab/CalledKeywordItem';
 
-
 import workIcon from '../../assets/twinkles/work-a.png';
 import familyIcon from '../../assets/twinkles/family-a.png';
 import friendIcon from '../../assets/twinkles/friend-a.png';
 import emergencyIcon from '../../assets/twinkles/red-a.png';
 import loverIcon from '../../assets/twinkles/lover-a.png';
+import DeleteIcon from '../../assets/buttons/delete.png';
 
 import assignButton from '../../assets/buttons/add.png';
-import {useContext} from 'react';
+import {useContext, useState} from 'react';
 import {UserLocContext} from '../../contexts/userloc';
 import {KeywordsContext} from '../../contexts/keywords';
 import Keyword from '../addTab/Keyword';
@@ -24,7 +24,15 @@ const CalledKeywords = [
 
 export default function Add() {
   const {moveLoc} = useContext(UserLocContext);
-  const {keywords} = useContext(KeywordsContext);
+  const {keywords, removeKeyword} = useContext(KeywordsContext);
+
+  //편집
+  const [editActive, setEditActive] = useState(false);
+
+  function editBtnHandler() {
+    setEditActive(!editActive);
+  }
+
   return (
     <>
       <View>
@@ -48,9 +56,13 @@ export default function Add() {
           <Text className="text-[16px] font-bold color-[#475467]">
             내 키워드
           </Text>
-          <Text className="color-[#606BFF]">편집</Text>
+          <Pressable onPress={editBtnHandler}>
+            <Text className="color-[#606BFF]">
+              {!editActive ? '편집' : '완료'}
+            </Text>
+          </Pressable>
         </View>
-        
+
         <View className="mt-[8px] flex flex-col">
           <Pressable
             onPressIn={() => moveLoc('assign')}
@@ -63,11 +75,20 @@ export default function Add() {
 
           <ScrollView className="flex flex-col ">
             {keywords.map(item => (
-              <Keyword
-                key={item.id}
-                type={item.type}
-                keywordText={item.keywordText}
-              />
+              <View className="flex-row items-center justify-center">
+                {!editActive ? null : (
+                  <Pressable
+                    onPressIn={() => removeKeyword(item.id)}
+                    className="ml-[15px] mr-[15px]">
+                    <Image source={DeleteIcon}></Image>
+                  </Pressable>
+                )}
+                <Keyword
+                  key={item.id}
+                  type={item.type}
+                  keywordText={item.keywordText}
+                />
+              </View>
             ))}
           </ScrollView>
         </View>

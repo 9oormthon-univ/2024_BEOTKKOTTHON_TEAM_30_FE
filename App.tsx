@@ -23,7 +23,7 @@ import {SettingsContextProvider} from './contexts/settings';
 
 const toastConfig = {
   newToast: ({text1}) => (
-    <View className="border-solid border-[1px] border-gray-300 rounded-xl flex flex-row justify-center items-center w-[345px] h-[56px] bg-white">
+    <View className="border-solid border-[1px] border-gray-300 rounded-xl flex flex-row justify-start gap-4 items-center w-[345px] h-[70px] bg-white">
       <Image source={loverIcon} />
       <Text>{text1}</Text>
     </View>
@@ -47,9 +47,9 @@ function App(): React.JSX.Element {
               <Content />
               <VoicRecog />
 
-              {/* <Button title="show toast" onPress={showToast}>
+              <Button title="show toast" onPress={showToast}>
                 click here to test Toast message
-              </Button> */}
+              </Button>
             </View>
             <Toast config={toastConfig} />
           </NavigationContainer>

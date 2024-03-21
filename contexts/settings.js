@@ -6,6 +6,7 @@ export const SettingsContext = createContext({
     hapticIsEnabled: '',
     emerSituationIsEnabled: '',
     emerKeywordIsEnabled: '',
+    dogIsEnabled: '',
   },
 
   changeSetting: targetSetting => {},
@@ -17,14 +18,14 @@ export function SettingsContextProvider({children}) {
     hapticIsEnabled: true,
     emerSituationIsEnabled: true,
     emerKeywordIsEnabled: true,
+    dogIsEnabled: true,
   });
 
   function changeSetting(targetSetting) {
     // console.log(targetSetting);
     setSettings(prev => {
       const updatedValue = !prev[targetSetting];
-      
-      
+
       const updatedSettings = {...prev, [targetSetting]: updatedValue};
       console.log(updatedSettings);
       return updatedSettings;

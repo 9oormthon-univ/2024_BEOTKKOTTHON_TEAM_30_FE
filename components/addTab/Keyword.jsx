@@ -8,7 +8,7 @@ import loverIcon from '../../assets/twinkles/lover-a.png';
 
 export default function Keyword({type, keywordText}) {
   return (
-    <View className="flex flex-row h-[64px] rounded-[16px] py-[2px] border-solid border-[1px] border-[#F2F4F7] items-center pl-[4px] mb-[12px]">
+    <View className="flex flex-1 flex-row h-[64px] rounded-[16px] py-[2px] border-solid border-[1px] border-[#F2F4F7] items-center pl-[4px] mb-[12px]">
       <Image
         className="m-[12px]"
         source={

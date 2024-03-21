@@ -8,7 +8,7 @@ import nameValidator from '../functions/nameValidator';
 export default function LoginPage() {
   const [isNameOk, setIsNameOk] = useState(false);
 
-  const {moveLoc, setUser} = useContext(UserLocContext);
+  const {setUser} = useContext(UserLocContext);
 
   function userNameHandler(name) {
     const validationResult = nameValidator(name);
@@ -19,21 +19,10 @@ export default function LoginPage() {
     }
   }
 
-  function pressHandler() {
-    if (isNameOk) {
-      moveLoc('greeting');
-    }
-  }
-
   return (
     <>
       <Header />
       <LoginMain setName={userNameHandler} isNameOk={isNameOk} />
-      <ProgressButton
-        onPressIn={pressHandler}
-        actiavted={isNameOk}
-        text="다음"
-      />
     </>
   );
 }

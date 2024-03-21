@@ -1,7 +1,6 @@
 export function checkCalled(result, list) {
   const word = result.split(' ');
-//   console.log(word);
-
+  console.log(word);
   for (const recognizedWord of word) {
     for (const keywordObj of list) {
       if (
