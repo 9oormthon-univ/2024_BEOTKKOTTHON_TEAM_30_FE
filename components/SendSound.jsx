@@ -5,6 +5,7 @@ import AudioRecorderPlayer from 'react-native-audio-recorder-player';
 const audioRecorderPlayer = new AudioRecorderPlayer();
 
 export default function RecordingSound() {
+    
   const [recording, setRecording] = useState(false);
 
   const [recordDuration, setRecordDuration] = useState({
@@ -33,6 +34,8 @@ export default function RecordingSound() {
       });
       await audioRecorderPlayer.startRecorder();
     }
+    
+    const path = RNFS.DocumentDirectoryPath + '/test.wav';
     audioRecorderPlayer.addRecordBackListener(e => {
       setRecordDuration({
         ...recordDuration,
@@ -64,6 +67,7 @@ export default function RecordingSound() {
       });
     });
   };
+  audioRecorderPlayer.s
 
 
 

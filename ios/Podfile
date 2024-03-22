@@ -62,5 +62,6 @@ target 'BehindUFe' do
     )
   end
   permissions_path = '../node_modules/react-native-permissions/ios'
-  pod 'Permission-SpeechRecognition', :path => "#{permissions_path}/SpeechRecognition"
+  #pod 'Permission-SpeechRecognition', :path => "#{permissions_path}/SpeechRecognition"
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
 end

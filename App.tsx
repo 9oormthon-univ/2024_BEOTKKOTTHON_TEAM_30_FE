@@ -13,7 +13,8 @@ import {UserLocContextProvider} from './contexts/userloc';
 import Content from './pages/Content';
 import {KeywordsContextProvider} from './contexts/keywords';
 import {SettingsContextProvider} from './contexts/settings';
-import SendSound from './components/SendSound';
+// import SendSound from './components/SendSound';
+import RecordSound from './components/RecordSound';
 
 const toastConfig = {
   newToast: ({text1}) => (
@@ -31,7 +32,11 @@ function App(): React.JSX.Element {
       text1: '친구가 구름님을 부르고 있나봐요!',
     });
   }
-  return <SendSound />;
+
+  const [parsedRecord, setParsedRecord] = useState(); 
+  console.log(parsedRecord); 
+  
+  return <RecordSound setParsedRecord={(val)=>setParsedRecord(val)} />; 
 
 
 
