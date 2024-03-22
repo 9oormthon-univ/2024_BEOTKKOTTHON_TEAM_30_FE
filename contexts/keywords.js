@@ -7,12 +7,17 @@ export const KeywordsContext = createContext({
   removeKeyword: id => {},
 
   nowCalled: '',
-  // calledList: [],
   call: keyword => {},
 });
 
 export function KeywordsContextProvider({children}) {
-  const [keywords, setKeywords] = useState([]);
+  const [keywords, setKeywords] = useState([
+    {
+      id: 0,
+      keywordText: '민지야',
+      type: '친구',
+    },
+  ]);
   const [nowCalled, setNowCalled] = useState('');
   const [calledCnt, setCalledCnt] = useState({
     가족: 0,
@@ -23,16 +28,18 @@ export function KeywordsContextProvider({children}) {
   });
 
   function addKeyword(keyword) {
-    // console.log(keywords)
-    setKeywords(prev => [...prev, keyword]);
+    const updatedKeywords = [...keywords, keyword];
+    setKeywords(updatedKeywords);
   }
 
   function call(calledKeyword) {
-    // setCalledCnt(prev => {
-    //   const cnt = prev[calledKeyword.type];
-    //   return {...prev, [calledKeyword.type]: cnt};
-    // });
-
+    if (calledKeyword) {
+      setCalledCnt(prev => {
+        const cnt = prev[calledKeyword.type] + 1;
+        const updated = {...prev, [calledKeyword.type]: cnt};
+        return updated;
+      });
+    }
     setNowCalled(calledKeyword);
   }
 
@@ -46,6 +53,7 @@ export function KeywordsContextProvider({children}) {
 
   const keywordsContext = {
     keywords: keywords,
+    calledCnt: calledCnt,
     nowCalled: nowCalled,
     addKeyword,
     removeKeyword,

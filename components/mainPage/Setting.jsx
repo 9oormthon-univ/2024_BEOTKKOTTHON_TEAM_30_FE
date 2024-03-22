@@ -31,11 +31,26 @@ export default function Setting() {
         <SettingItem
           title="긴급"
           p="자동으로 긴급상황을 알려드릴게요!"
-          what="긴급상황 자동 알림"
+          what="강아지 소리"
           isEnabled={emerSituationIsEnabled}
           setIsEnabled={() => changeSetting("emerSituationIsEnabled")}>
           <ToggleContainer
-            what="긴급 키워드 자동 알림"
+            what="차 경적 소리"
+            isEnabled={emerKeywordIsEnabled}
+            setIsEnabled={() => changeSetting("emerKeywordIsEnabled")}
+          />
+          <ToggleContainer
+            what="조심해"
+            isEnabled={emerKeywordIsEnabled}
+            setIsEnabled={() => changeSetting("emerKeywordIsEnabled")}
+          />
+          <ToggleContainer
+            what="위험해"
+            isEnabled={emerKeywordIsEnabled}
+            setIsEnabled={() => changeSetting("emerKeywordIsEnabled")}
+          />
+          <ToggleContainer
+            what="대피하세요"
             isEnabled={emerKeywordIsEnabled}
             setIsEnabled={() => changeSetting("emerKeywordIsEnabled")}
           />

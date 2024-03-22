@@ -1,16 +1,26 @@
-export function checkCalled(result, list) {
-  const word = result.split(' ');
-  console.log(word);
+import { useContext } from "react";
+import { KeywordsContext } from "../contexts/keywords";
+
+export function checkCalled(keywords, result) {
+  
+  let called = null; 
+  const word = result[0].split(' ');
+  // console.log(word);
+  // console.log(keywords);
+  
   for (const recognizedWord of word) {
-    for (const keywordObj of list) {
+    for (const keywordObj of keywords) {
+      // console.log(recognizedWord)
+      // console.log(keywordObj)
       if (
         keywordObj.hasOwnProperty('keywordText') &&
         recognizedWord === keywordObj.keywordText
       ) {
-        console.log(recognizej.keywordText);
-        return keywordObj;
+        called =  keywordObj;
       }
     }
   }
-  return [false, word];
+  
+  
+  return called; 
 }

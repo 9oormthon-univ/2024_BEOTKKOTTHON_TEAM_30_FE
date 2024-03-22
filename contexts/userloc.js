@@ -8,7 +8,7 @@ export const UserLocContext = createContext({
 });
 
 export function UserLocContextProvider({children}) {
-  const [userLoc, setUserLoc] = useState('splash');
+  const [userLoc, setUserLoc] = useState('add');
   const [userName, setUserName] = useState('');
 
   function moveLoc(target) {

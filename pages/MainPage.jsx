@@ -7,28 +7,39 @@ import NavBar from '../components/defaults/NavBar';
 import Home from '../components/mainPage/Home';
 import Add from '../components/mainPage/Add';
 import Setting from '../components/mainPage/Setting';
+import introduce from '../assets/buttons/introduce.png'; 
 
 export default function MainPage() {
   const {userLoc} = useContext(UserLocContext);
   let tab;
   if (userLoc === 'home') {
     tab = (
-      <View className="flex flex-1 w-full">
-        <Home />
-      </View>
+      <>
+        <Header forward={introduce} />
+        <View className="flex flex-1 w-full">
+          <Home />
+        </View>
+      </>
     );
   } else if (userLoc === 'add') {
     tab = (
-      <View className="flex flex-1 mx-[24px] mt-[40px]">
-        <Add />
-      </View>
+      <>
+        <Header />
+        <View className="flex flex-1 mx-[24px] mt-[40px]">
+          <Add />
+        </View>
+      </>
     );
   } else if (userLoc === 'setting') {
-    tab = <Setting />;
+    tab = (
+      <>
+        <Header />
+        <Setting />
+      </>
+    );
   }
   return (
     <>
-      <Header />
       {tab}
       <NavBar />
     </>

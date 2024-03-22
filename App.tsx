@@ -7,18 +7,11 @@
 
 import React, {useState} from 'react';
 import {Button, View, Text, Image} from 'react-native';
-import VoicRecog from './components/VoiceRecog';
 import Toast from 'react-native-toast-message';
 import {NavigationContainer} from '@react-navigation/native';
 import {UserLocContextProvider} from './contexts/userloc';
 import Content from './pages/Content';
 import {KeywordsContextProvider} from './contexts/keywords';
-
-import workIcon from './assets/twinkles/work-a.png';
-import familyIcon from './assets/twinkles/family-a.png';
-import friendIcon from './assets/twinkles/friend-a.png';
-import emergencyIcon from './assets/twinkles/red-a.png';
-import loverIcon from './assets/twinkles/lover-a.png';
 import {SettingsContextProvider} from './contexts/settings';
 
 const toastConfig = {
@@ -43,13 +36,12 @@ function App(): React.JSX.Element {
       <SettingsContextProvider>
         <KeywordsContextProvider>
           <NavigationContainer>
-            <View className="flex flex-1 border-solid">
+            <View className="flex flex-1">
               <Content />
-              <VoicRecog />
 
-              <Button title="show toast" onPress={showToast}>
+              {/* <Button title="show toast" onPress={showToast}>
                 click here to test Toast message
-              </Button>
+              </Button> */}
             </View>
             <Toast config={toastConfig} />
           </NavigationContainer>

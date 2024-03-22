@@ -8,14 +8,12 @@ import Header from '../components/defaults/Header';
 import Assigning from '../components/assignPage/Assigning';
 import {UserLocContext} from '../contexts/userloc';
 
-
-
-import {AssignsExplanation} from '../UXwritings/writings'
+import {AssignsExplanation} from '../UXwritings/writings';
 
 export default function AssignPage() {
   const [isNameOk, setIsNameOk] = useState(false);
   const [type, setType] = useState('가족');
-  const [danger, setDanger] = useState('');
+  const [danger, setDanger] = useState('조심');
   const [keywordText, setKeywordText] = useState();
   const [isAssigned, setIsAssigned] = useState(false);
   const {addKeyword} = useContext(KeywordsContext);
@@ -52,7 +50,6 @@ export default function AssignPage() {
 
   return (
     <>
-    
       <Header back="add" text="키워드 추가" />
       {isAssigned && (
         <>
@@ -73,6 +70,7 @@ export default function AssignPage() {
       )}
       {!isAssigned && (
         <Assigning
+          danger={danger}
           setDanger={r => setDanger(r)}
           isNameOk={isNameOk}
           type={type}

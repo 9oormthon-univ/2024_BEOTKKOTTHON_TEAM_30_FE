@@ -31,7 +31,8 @@ export default function Assigning({
   setIsNameOk,
   setKeywordText,
   setType,
-  setDanger
+  setDanger,
+  danger
 }) {
   function keywordHandler(keyword) {
     const validationResult = nameValidator(keyword);
@@ -40,6 +41,7 @@ export default function Assigning({
       setKeywordText(keyword);
     }
   }
+
   return (
     <View className="px-[24px] pt-[48px] flex items-start flex-1">
       <Text className="text-[20px] font-bold mb-[8px]">어떻게 부르나요?</Text>
@@ -69,6 +71,7 @@ export default function Assigning({
             text={item.text}
             icon={item.icon}
             activated={type}
+            _className={type === item.text ? '' : 'opacity-40'}
           />
         ))}
       </View>
@@ -84,11 +87,12 @@ export default function Assigning({
           <View className="flex flex-row justify-between px-[8px]  w-1/2">
             {EmergencyRanges.map(item => (
               <AssignTypeItem
-                onPressIn={()=>setDanger(item.text)}
+                onPressIn={() => setDanger(item.text)}
                 key={item.id}
                 text={item.text}
                 icon={item.icon}
                 activated={type}
+                _className={danger === item.text ? '' : 'opacity-40'}
               />
             ))}
           </View>

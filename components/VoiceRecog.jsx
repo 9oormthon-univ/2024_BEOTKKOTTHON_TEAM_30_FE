@@ -1,68 +1,51 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useState} from 'react';
 import Voice from '@react-native-voice/voice';
 import {Button, Text, View} from 'react-native';
 import {checkCalled} from '../functions/checkCalled';
 import {KeywordsContext} from '../contexts/keywords';
 
 export default function VoicRecog() {
-  const [isRecord, setIsRecord] = useState(false);
-  const [text, setText] = useState('');
-  const {keywords} = useContext(KeywordsContext);
-  const buttonLabel = isRecord ? 'Stop' : 'Start';
-  const voiceLabel = text
-    ? text
-    : isRecord
-    ? 'Say something...'
-    : 'press Start button';
-
-  const _onSpeechStart = () => {
-    console.log('onSpeechStart');
-    setText('');
-  };
-  const _onSpeechEnd = () => {
-    console.log('onSpeechEnd');
-  };
-  const _onSpeechVolumeChanged = () => {};
-  const _onSpeechResults = event => {
-    const result = checkCalled(event.value[0], keywords);
-    console.log(result);
-    console.log(keywords);
-    setText(event.value[0]);
-  };
-  const _onSpeechError = event => {
-    console.log('_onSpeechError');
-    console.log(event.error);
-  };
-
-  const _startRecognition = async () => {
-    try {
-      await Voice.start('kor');
-      setIsRecord(true);
-    } catch (e) {
-      console.error(e);
-    }
-  };
+  const {keywords, nowCalled, call} = useContext(KeywordsContext);
 
   useEffect(() => {
     Voice.onSpeechStart = _onSpeechStart;
+    Voice.onSpeechRecognized = _onSpeechRecognized;
     Voice.onSpeechEnd = _onSpeechEnd;
-    Voice.onSpeechResults = _onSpeechResults;
     Voice.onSpeechError = _onSpeechError;
+    Voice.onSpeechResults = _onSpeechResults;
+    Voice.onSpeechPartialResults = _onSpeechPartialResults;
     Voice.onSpeechVolumeChanged = _onSpeechVolumeChanged;
-    // Voice.onSpeechPartialResults = _onSpeechPartialResults;
-
-    _startRecognition();
 
     return () => {
-      console.log('hi');
       Voice.destroy().then(Voice.removeAllListeners);
     };
   }, [keywords]);
 
-  return (
-    <View>
-      <Text>{voiceLabel}</Text>
-      {/* <Button onPress={_onRecordVoice} title={buttonLabel} /> */}
-    </View>
-  );
+  useEffect(() => {
+    const timer = setInterval(() => {
+      Voice.start('kor');
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  function _onSpeechStart(e) {
+    console.log('started');
+  }
+  function _onSpeechEnd(e) {
+    console.log('end');
+  }
+  function _onSpeechError(e) {}
+  function _onSpeechRecognized(e) {}
+  function _onSpeechResults(e) {
+    const result = checkCalled(keywords, e.value);
+    if (result) {
+      call(result);
+    }
+  }
+
+  function _onSpeechPartialResults(e) {}
+  function _onSpeechVolumeChanged(e) {}
+
+  return;
 }

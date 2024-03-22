@@ -27,7 +27,7 @@ export function SettingsContextProvider({children}) {
       const updatedValue = !prev[targetSetting];
 
       const updatedSettings = {...prev, [targetSetting]: updatedValue};
-      console.log(updatedSettings);
+      // console.log(updatedSettings);
       return updatedSettings;
     });
   }

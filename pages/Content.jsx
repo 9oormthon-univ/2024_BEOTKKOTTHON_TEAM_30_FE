@@ -1,4 +1,4 @@
-import {useContext} from 'react';
+import {useContext, useState} from 'react';
 import {UserLocContext} from '../contexts/userloc';
 import {View, Text, Image} from 'react-native';
 
@@ -9,12 +9,16 @@ import SplashPage from './SplashPage';
 import GreetingPage from './GreetingPage';
 import IntroducePage from './IntroducePage';
 import background from '../assets/backgrounds/gradient.png';
+import VoicRecog from '../components/VoiceRecog';
+import normal from '../assets/backgrounds/normal.png';
+
 
 export default function Content() {
   const {userLoc} = useContext(UserLocContext);
+  
+
   let content;
-  console.log(userLoc);
-  // loading 기능 구현해주세요!
+  // console.log(userLoc);
   if (userLoc === 'splash') {
     content = <SplashPage />;
   } else if (userLoc === 'login') {
@@ -24,7 +28,10 @@ export default function Content() {
   } else if (userLoc === 'home') {
     content = (
       <>
-        <Image source={background} className="absolute top-0 w-full h-full" />
+      {/* <View className="bg-black">
+        <Image source={normal} className="opacity-50 w-full h-full" />
+      </View> */}
+        {/* <Image source={background} className="absolute top-0 w-full h-full" /> */}
         <MainPage />
       </>
     );
@@ -36,5 +43,10 @@ export default function Content() {
     content = <IntroducePage />;
   }
 
-  return content;
+  return (
+    <>
+      {/* <VoicRecog /> */}
+      {content}
+    </>
+  );
 }

@@ -15,17 +15,17 @@ import {KeywordsContext} from '../../contexts/keywords';
 import Keyword from '../addTab/Keyword';
 
 const CalledKeywords = [
-  {id: 0, icon: familyIcon},
-  {id: 1, icon: workIcon},
-  {id: 2, icon: friendIcon},
-  {id: 3, icon: loverIcon},
-  {id: 4, icon: emergencyIcon},
+  {id: 0, type: '가족', icon: familyIcon},
+  {id: 1, type: '직장', icon: workIcon},
+  {id: 2, type: '친구', icon: friendIcon},
+  {id: 3, type: '연인', icon: loverIcon},
+  {id: 4, type: '긴급', icon: emergencyIcon},
 ];
 
 export default function Add() {
   const {moveLoc} = useContext(UserLocContext);
-  const {keywords, removeKeyword} = useContext(KeywordsContext);
-
+  const {keywords, removeKeyword, calledCnt} = useContext(KeywordsContext);
+  // console.log(calledCnt);
   //편집
   const [editActive, setEditActive] = useState(false);
 
@@ -47,9 +47,12 @@ export default function Add() {
           키워드 불린 횟수
         </Text>
         <View className="flex flex-row justify-between mt-[16px] mx-[12px]">
-          {/* 백에서 정보 받아오기.. */}
           {CalledKeywords.map(item => (
-            <CalledKeywordItem key={item.id} icon={item.icon} cnt={0} />
+            <CalledKeywordItem
+              key={item.id}
+              icon={item.icon}
+              cnt={Math.floor(calledCnt[item.type]/3)}
+            />
           ))}
         </View>
         <View className="mt-[48px] flex flex-row justify-between items-end mb-[8px]">
@@ -75,7 +78,9 @@ export default function Add() {
 
           <ScrollView className="flex flex-col ">
             {keywords.map(item => (
-              <View className="flex-row items-center justify-center">
+              <View
+                className="flex-row items-center justify-center"
+                key={item.id}>
                 {!editActive ? null : (
                   <Pressable
                     onPressIn={() => removeKeyword(item.id)}
@@ -83,11 +88,7 @@ export default function Add() {
                     <Image source={DeleteIcon}></Image>
                   </Pressable>
                 )}
-                <Keyword
-                  key={item.id}
-                  type={item.type}
-                  keywordText={item.keywordText}
-                />
+                <Keyword type={item.type} keywordText={item.keywordText} />
               </View>
             ))}
           </ScrollView>
