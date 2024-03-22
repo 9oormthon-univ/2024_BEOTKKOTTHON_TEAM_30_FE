@@ -16,9 +16,12 @@ export function SettingsContextProvider({children}) {
   const [settings, setSettings] = useState({
     alertIsEnabled: true,
     hapticIsEnabled: true,
-    emerSituationIsEnabled: true,
-    emerKeywordIsEnabled: true,
     dogIsEnabled: true,
+    carIsEnabled: true, 
+    sirenIsEnabled: true, 
+    josimIsEnabled: true, 
+    dangerIsEnabled: true, 
+    fleeIsEnabled: true, 
   });
 
   function changeSetting(targetSetting) {

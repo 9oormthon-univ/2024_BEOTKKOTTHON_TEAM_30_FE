@@ -17,10 +17,46 @@ export function KeywordsContextProvider({children}) {
       keywordText: '민지야',
       type: '친구',
     },
+    {
+      id: 1,
+      keywordText: '조심',
+      type: '긴급',
+      danger: '조심'
+    },
+    {
+      id: 2,
+      keywordText: '조심하세요',
+      type: '긴급',
+      danger: '조심'
+    },
+    {
+      id: 3,
+      keywordText: '대피',
+      type: '긴급',
+      danger: '대피'
+    },
+    {
+      id: 4,
+      keywordText: '대피하세요',
+      type: '긴급',
+      danger: '대피'
+    },
+    {
+      id: 5,
+      keywordText: '위험',
+      type: '긴급',
+      danger: '위험'
+    },
+    {
+      id: 6,
+      keywordText: '위험해요',
+      type: '긴급',
+      danger: '위험'
+    },
   ]);
   const [nowCalled, setNowCalled] = useState('');
   const [calledCnt, setCalledCnt] = useState({
-    가족: 0,
+    가족: 1,
     직장: 0,
     친구: 0,
     연인: 0,
@@ -29,7 +65,7 @@ export function KeywordsContextProvider({children}) {
 
   function addKeyword(keyword) {
     console.log(keyword)
-    const updatedKeywords = [...keywords, keyword];
+    const updatedKeywords = [keyword, ...keywords ];
     setKeywords(updatedKeywords);
   }
 

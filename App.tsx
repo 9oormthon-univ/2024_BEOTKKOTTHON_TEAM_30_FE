@@ -34,9 +34,9 @@ function App(): React.JSX.Element {
   }
 
   const [parsedRecord, setParsedRecord] = useState(); 
-  console.log(parsedRecord); 
+  // console.log(parsedRecord); 
   
-  return <RecordSound setParsedRecord={(val)=>setParsedRecord(val)} />; 
+  // return <RecordSound setParsedRecord={(val)=>setParsedRecord(val)} />; 
 
 
 

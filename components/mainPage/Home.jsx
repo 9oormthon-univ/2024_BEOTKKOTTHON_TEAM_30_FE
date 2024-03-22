@@ -5,12 +5,14 @@ import {useContext, useEffect, useRef, useState} from 'react';
 import {UserLocContext} from '../../contexts/userloc';
 import {Image} from 'expo-image';
 import {KeywordsContext} from '../../contexts/keywords';
+import { vibrationMaker } from '../../functions/vibrationMaker';
 
 const mungu = {
   친구: '친구가 날 부르고 있나봐요!',
   연인: '연인이 날 부르고 있나봐요!',
   가족: '가족이 날 부르고 있나봐요!',
   직장: '직장동료가 날 부르고 있나봐요!',
+  긴급: '주변을 살펴볼까요?'
 };
 
 export default function Home() {
@@ -22,6 +24,7 @@ export default function Home() {
   useEffect(() => {
     if (nowCalled) {
       setIsChanged(true);
+      vibrationMaker();
       // setCalledType(nowCalled.type);
     } else {
       setIsChanged(false);
@@ -41,7 +44,7 @@ export default function Home() {
       </View>
 
       <View className="flex items-center justify-center absolute top-[420px] w-full">
-        <Text className={`text-[32px] font-bold ${isChanged ? 'color-[#606BFF]' : 'color-[#182230]'}`}>
+        <Text className={`text-[32px] font-bold ${nowCalled.type === '긴급' ? 'color-[#FF6060]': isChanged ? 'color-[#606BFF]' : 'color-[#182230]'}`}>
           {!isChanged && `${userName}님`}
           {isChanged && `"${nowCalled.keywordText}"`}
         </Text>
@@ -54,7 +57,7 @@ export default function Home() {
             onPressIn={() => {
               call(false);
             }}
-            className="bg-[#606BFF] w-[110px] h-[52px] flex justify-center items-center rounded-[33px] my-[16px]">
+            className={`${nowCalled.type === '긴급' ? 'bg-[#FF6060]' : 'bg-[#606BFF]'} w-[110px] h-[52px] flex justify-center items-center rounded-[33px] my-[16px]`}>
             <Text className="color-white text-[16px] font-bold">확인</Text>
           </Pressable>
         )}

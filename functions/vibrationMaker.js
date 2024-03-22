@@ -7,9 +7,7 @@ import { Vibration } from 'react-native';
 
 const ONE_SECOND_IN_MS = 1000;
 
-export const vibrator = () => {
-
-
+export const vibrationMaker = () => {
     //빠르게 3번 이어서
 
     const PATTERN = [

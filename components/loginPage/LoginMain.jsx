@@ -4,6 +4,7 @@ import ProgressButton from '../defaults/ProgressButton';
 import {useContext, useState} from 'react';
 import {UserLocContext} from '../../contexts/userloc';
 import EmerSituation from './EmerSituation';
+import EmerKeyword from './EmerKeyword';
 
 export default function LoginMain({setName, isNameOk}) {
   const {moveLoc} = useContext(UserLocContext);
@@ -45,8 +46,10 @@ export default function LoginMain({setName, isNameOk}) {
           />
         </>
       )}
+      
       {loginLoc === 'dog' && <Dog setLoginloc={val => setLoginloc(val)} />}
-      {loginLoc === 'emerSituation' && <EmerSituation />}
+      {loginLoc === 'emerSituation' && <EmerSituation  setLoginloc={val => setLoginloc(val)} />}
+      {loginLoc === 'emerkeyword' && <EmerKeyword />}
     </>
   );
 }

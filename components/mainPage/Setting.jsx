@@ -9,8 +9,12 @@ export default function Setting() {
   const {
     alertIsEnabled,
     hapticIsEnabled,
-    emerSituationIsEnabled, 
-    emerKeywordIsEnabled,
+    dogIsEnabled,
+    carIsEnabled, 
+    sirenIsEnabled, 
+    josimIsEnabled, 
+    dangerIsEnabled, 
+    fleeIsEnabled, 
   } = settings;
 
   return (
@@ -32,27 +36,32 @@ export default function Setting() {
           title="긴급"
           p="자동으로 긴급상황을 알려드릴게요!"
           what="강아지 소리"
-          isEnabled={emerSituationIsEnabled}
-          setIsEnabled={() => changeSetting("emerSituationIsEnabled")}>
+          isEnabled={dogIsEnabled}
+          setIsEnabled={() => changeSetting("dogIsEnabled")}>
           <ToggleContainer
             what="차 경적 소리"
-            isEnabled={emerKeywordIsEnabled}
-            setIsEnabled={() => changeSetting("emerKeywordIsEnabled")}
+            isEnabled={carIsEnabled}
+            setIsEnabled={() => changeSetting("carIsEnabled")}
+          />
+          <ToggleContainer
+            what="사이렌 소리"
+            isEnabled={sirenIsEnabled}
+            setIsEnabled={() => changeSetting("sirenIsEnabled")}
           />
           <ToggleContainer
             what="조심해"
-            isEnabled={emerKeywordIsEnabled}
-            setIsEnabled={() => changeSetting("emerKeywordIsEnabled")}
+            isEnabled={josimIsEnabled}
+            setIsEnabled={() => changeSetting("josimIsEnabled")}
           />
           <ToggleContainer
             what="위험해"
-            isEnabled={emerKeywordIsEnabled}
-            setIsEnabled={() => changeSetting("emerKeywordIsEnabled")}
+            isEnabled={dangerIsEnabled}
+            setIsEnabled={() => changeSetting("dangerIsEnabled")}
           />
           <ToggleContainer
             what="대피하세요"
-            isEnabled={emerKeywordIsEnabled}
-            setIsEnabled={() => changeSetting("emerKeywordIsEnabled")}
+            isEnabled={fleeIsEnabled}
+            setIsEnabled={() => changeSetting("fleeIsEnabled")}
           />
         </SettingItem>
       </View>

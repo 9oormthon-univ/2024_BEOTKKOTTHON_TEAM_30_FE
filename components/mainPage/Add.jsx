@@ -33,12 +33,26 @@ export default function Add() {
     setEditActive(!editActive);
   }
 
+  const keys = Object.keys(calledCnt);
+
+// 가장 큰 값을 초기화
+let mostCalled = keys[0];
+let maxValue = calledCnt[mostCalled];
+
+// 키들을 순회하며 최댓값 갱신
+keys.forEach(key => {
+  if (calledCnt[key] > maxValue) {
+    mostCalled = key;
+    maxValue = calledCnt[key];
+  }
+});
+
   return (
     <>
       <View>
-        <Text className="color-[#606BFF] text-[32px] font-bold">구름아</Text>
+        <Text className="color-[#606BFF] text-[32px] font-bold">{mostCalled}</Text>
         <Text className="color-[#182230] text-[20px] font-bold my-[12px]">
-          로 가장 많이 불렸어요!
+          으로부터 가장 많이 불렸어요!
         </Text>
       </View>
 
@@ -47,7 +61,7 @@ export default function Add() {
           키워드 불린 횟수
         </Text>
         <View className="flex flex-row justify-between mt-[16px] mx-[12px]">
-          {CalledKeywords.map(item => (
+          {CalledKeywords.map(item => ( 
             <CalledKeywordItem
               key={item.id}
               icon={item.icon}

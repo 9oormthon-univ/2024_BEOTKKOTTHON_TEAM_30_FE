@@ -12,8 +12,6 @@ export default function Dog({setLoginloc}) {
             changeSetting('dogIsEnabled'); 
         }
         setLoginloc('emerSituation'); 
-
-
     }
   return (
     <>
