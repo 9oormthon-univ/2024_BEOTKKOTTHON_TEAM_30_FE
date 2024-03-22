@@ -35,12 +35,12 @@ const NavBars = [
   },
 ];
 
-export default function NavBar() {
+export default function NavBar({none}) {
   const {userLoc, moveLoc} = useContext(UserLocContext);
   
 
   return (
-    <View className="pb-[36px] h-[100px] flex flex-row items-center justify-evenly bg-white  border-t-[1px]  border-gray-200 ">
+    <View className={`pb-[36px] h-[100px] flex flex-row items-center justify-evenly bg-white  border-t-[1px]  border-gray-200  ${none && 'opacity-0'}`}>
       {NavBars.map(item => (
         <NavBarButton
           key={item.id}

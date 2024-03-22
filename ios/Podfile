@@ -61,4 +61,6 @@ target 'BehindUFe' do
       :mac_catalyst_enabled => false
     )
   end
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  pod 'Permission-SpeechRecognition', :path => "#{permissions_path}/SpeechRecognition"
 end

@@ -28,6 +28,7 @@ export function KeywordsContextProvider({children}) {
   });
 
   function addKeyword(keyword) {
+    console.log(keyword)
     const updatedKeywords = [...keywords, keyword];
     setKeywords(updatedKeywords);
   }

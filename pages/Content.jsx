@@ -10,12 +10,11 @@ import GreetingPage from './GreetingPage';
 import IntroducePage from './IntroducePage';
 import background from '../assets/backgrounds/gradient.png';
 import VoicRecog from '../components/VoiceRecog';
-import normal from '../assets/backgrounds/normal.png';
-
+import NavBar from '../components/defaults/NavBar';
 
 export default function Content() {
   const {userLoc} = useContext(UserLocContext);
-  
+  // const [calledType, setCalledType] = useState('');
 
   let content;
   // console.log(userLoc);
@@ -28,15 +27,38 @@ export default function Content() {
   } else if (userLoc === 'home') {
     content = (
       <>
-      {/* <View className="bg-black">
-        <Image source={normal} className="opacity-50 w-full h-full" />
-      </View> */}
-        {/* <Image source={background} className="absolute top-0 w-full h-full" /> */}
-        <MainPage />
+        {/* <View className={`${calledType && 'bg-black bg-red-900'} absolut top-0 w-full h-full`}> */}
+          {/* {calledType && (
+            <Image
+              source={normal}
+              className="absolute opacity-50 w-full h-full"
+            />
+          )}
+          {!calledType && (
+            <Image
+              source={background}
+              className="absolute top-0 w-full h-full"
+            />
+          )} */}
+           <Image
+              source={background}
+              className="absolute top-0 w-full h-full"
+            />
+
+          <MainPage  />
+          {/* setCalledType={(val) => setCalledType(val)} */}
+          <NavBar  />
+          {/* none={calledType} */}
+        {/* </View> */}
       </>
     );
   } else if (userLoc === 'add' || userLoc === 'setting') {
-    content = <MainPage />;
+    content = (
+      <>
+        <MainPage />
+        <NavBar />
+      </>
+    );
   } else if (userLoc === 'assign') {
     content = <AssignPage />;
   } else if (userLoc === 'introduce') {
@@ -45,7 +67,7 @@ export default function Content() {
 
   return (
     <>
-      {/* <VoicRecog /> */}
+      <VoicRecog />
       {content}
     </>
   );

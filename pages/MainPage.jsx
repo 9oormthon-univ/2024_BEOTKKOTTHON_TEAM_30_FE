@@ -9,7 +9,7 @@ import Add from '../components/mainPage/Add';
 import Setting from '../components/mainPage/Setting';
 import introduce from '../assets/buttons/introduce.png'; 
 
-export default function MainPage() {
+export default function MainPage({setCalledType}) {
   const {userLoc} = useContext(UserLocContext);
   let tab;
   if (userLoc === 'home') {
@@ -17,7 +17,7 @@ export default function MainPage() {
       <>
         <Header forward={introduce} />
         <View className="flex flex-1 w-full">
-          <Home />
+          <Home setCalledType={setCalledType} />
         </View>
       </>
     );
@@ -41,7 +41,6 @@ export default function MainPage() {
   return (
     <>
       {tab}
-      <NavBar />
     </>
   );
 }

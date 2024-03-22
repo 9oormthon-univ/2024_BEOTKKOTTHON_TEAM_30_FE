@@ -22,16 +22,18 @@ export default function Home() {
   useEffect(() => {
     if (nowCalled) {
       setIsChanged(true);
+      // setCalledType(nowCalled.type);
     } else {
       setIsChanged(false);
+      // setCalledType(null);
     }
   }, [nowCalled]);
 
   return (
     <>
-      <View className="flex flex-1 justify-center items-center border-2">
+      <View className="flex flex-1 justify-center items-center">
         <Image
-          className="w-[320px] h-[352.72px] flex-1 absolute bottom-[240px] left-[20px]"
+          className="w-[320px] h-[352.72px] flex-1 absolute bottom-[290px] left-[20px]"
           source={isChanged ? movingTwinkle : twinkle}
           contentFit="cover"
           transition={1000}
@@ -39,11 +41,11 @@ export default function Home() {
       </View>
 
       <View className="flex items-center justify-center absolute top-[420px] w-full">
-        <Text className="text-[32px] font-bold color-[#182230]">
+        <Text className={`text-[32px] font-bold ${isChanged ? 'color-[#606BFF]' : 'color-[#182230]'}`}>
           {!isChanged && `${userName}님`}
           {isChanged && `"${nowCalled.keywordText}"`}
         </Text>
-        <Text className="color-[#667085] text-[20px] font-medium my-[24px]">
+        <Text className={`'color-[#667085] text-[20px] font-medium my-[24px]`}>
           {!isChanged && '아직은 아무도 부르지 않았네요!'}
           {isChanged && mungu[nowCalled.type]}
         </Text>
