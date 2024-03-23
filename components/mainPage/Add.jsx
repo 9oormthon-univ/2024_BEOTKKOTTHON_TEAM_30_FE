@@ -47,16 +47,17 @@ keys.forEach(key => {
   }
 });
 
+
   return (
     <>
       <View>
-        <Text className="color-[#606BFF] text-[32px] font-bold">{mostCalled}</Text>
+        <Text className="color-[#606BFF] text-[32px] font-bold">{maxValue !== 0 && mostCalled}</Text>
         <Text className="color-[#182230] text-[20px] font-bold my-[12px]">
           으로부터 가장 많이 불렸어요!
         </Text>
       </View>
 
-      <View className="mt-8">
+      <ScrollView className="mt-8">
         <Text className="color-[#475467] text-[16px] font-bold">
           키워드 불린 횟수
         </Text>
@@ -65,7 +66,7 @@ keys.forEach(key => {
             <CalledKeywordItem
               key={item.id}
               icon={item.icon}
-              cnt={Math.floor(calledCnt[item.type]/3)}
+              cnt={Math.floor(calledCnt[item.type]/2)}
             />
           ))}
         </View>
@@ -90,8 +91,9 @@ keys.forEach(key => {
             </Text>
           </Pressable>
 
-          <ScrollView className="flex flex-col ">
-            {keywords.map(item => (
+          <View className="flex flex-col ">
+            {keywords.map(item => {if (item.id < 1) return (
+
               <View
                 className="flex-row items-center justify-center"
                 key={item.id}>
@@ -104,10 +106,10 @@ keys.forEach(key => {
                 )}
                 <Keyword type={item.type} keywordText={item.keywordText} />
               </View>
-            ))}
-          </ScrollView>
+            )} )}
+          </View>
         </View>
-      </View>
+      </ScrollView>
     </>
   );
 }

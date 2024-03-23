@@ -56,7 +56,7 @@ export function KeywordsContextProvider({children}) {
   ]);
   const [nowCalled, setNowCalled] = useState('');
   const [calledCnt, setCalledCnt] = useState({
-    가족: 1,
+    가족: 0,
     직장: 0,
     친구: 0,
     연인: 0,

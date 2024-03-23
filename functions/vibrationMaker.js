@@ -8,15 +8,5 @@ import { Vibration } from 'react-native';
 const ONE_SECOND_IN_MS = 1000;
 
 export const vibrationMaker = () => {
-    //빠르게 3번 이어서
-
-    const PATTERN = [
-        0.1 * ONE_SECOND_IN_MS
-    ];
-
-    Vibration.vibrate(PATTERN, true);
-
-    setTimeout(() => {
-        Vibration.cancel();
-    }, 1500);
+    Vibration.vibrate([500, 1000, 500, 2000]);
 }

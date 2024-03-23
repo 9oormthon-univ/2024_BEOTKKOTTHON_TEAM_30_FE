@@ -34,6 +34,7 @@ export function SettingsContextProvider({children}) {
       return updatedSettings;
     });
   }
+  
 
   const settingsContext = {settings: settings, changeSetting};
 
